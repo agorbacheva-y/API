@@ -10,8 +10,8 @@ const TriviaRequest = () => {
     
     setTrivia(data.results);
     
-    console.log(trivia); // returns empty array
-    console.log(data); // returns array with response
+    console.log(trivia); // returns empty array, then few minutes later returns response
+    console.log(data); // returns response immediately
   };
 
   // call function to see data
@@ -32,3 +32,6 @@ const TriviaRequest = () => {
 export default TriviaRequest;
 
 // https://opentdb.com/api_config.php 
+
+// want to save response in array and map through array
+// to render one question at a time
