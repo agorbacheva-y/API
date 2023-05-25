@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import he from "he";
 import Card from "react-bootstrap/Card";
 
 const TriviaRequest = () => {
@@ -10,8 +11,8 @@ const TriviaRequest = () => {
     
     setTrivia(data.results);
     
-    console.log(trivia); // returns empty array, then few minutes later returns response
-    console.log(data); // returns response immediately
+    //console.log(trivia); // returns empty array, then several minutes later returns response
+    //console.log(data); // returns response immediately
   };
 
   // call function to see data
@@ -19,13 +20,16 @@ const TriviaRequest = () => {
     fetchTrivia();
   },[]);
 
+  let n = Math.floor(Math.random() * trivia.length);
+  let text = "";
+  text = trivia[n]?.question; // ? checks if trivia array exists, then executes
+  // console.log(text);
+
   return (
     <>
       <h1>Trivia Quiz</h1>
       <Card body>
-        {trivia.map((q, i) => (
-          <p key={i}>{q.question}</p>
-        ))}
+        {text}
       </Card>
     </>
   );
@@ -37,3 +41,9 @@ export default TriviaRequest;
 
 // want to save response in array and map through array
 // to render one question at a time
+
+/* maps through to show all questions in array
+{trivia.map((q, i) => (
+  <p key={i}>{he.decode(q.question)}</p>
+))}
+*/
