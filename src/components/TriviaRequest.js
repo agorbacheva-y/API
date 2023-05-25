@@ -23,8 +23,8 @@ const TriviaRequest = () => {
     <>
       <h1>Trivia Quiz</h1>
       <Card body>
-        {trivia.map((question, i) => (
-          <p key={i}>{trivia.question}</p>
+        {trivia.map((q, i) => (
+          <p key={i}>{q.question}</p>
         ))}
       </Card>
     </>
