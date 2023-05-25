@@ -1,8 +1,12 @@
 import Fetch from "./Fetch";
+import TriviaRequest from "./TriviaRequest";
 
 const Home = () => {
   return (
-    <Fetch />
+    <>
+      <Fetch />
+      <TriviaRequest />
+    </>
   );
 };
 export default Home;
