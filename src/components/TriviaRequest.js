@@ -39,11 +39,10 @@ export default TriviaRequest;
 
 // https://opentdb.com/api_config.php 
 
-// want to save response in array and map through array
-// to render one question at a time
-
 /* maps through to show all questions in array
 {trivia.map((q, i) => (
   <p key={i}>{he.decode(q.question)}</p>
 ))}
 */
+
+// he.decode doesnt work now???
