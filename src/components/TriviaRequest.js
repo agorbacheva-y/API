@@ -3,13 +3,15 @@ import Card from "react-bootstrap/Card";
 
 const TriviaRequest = () => {
   const [ trivia, setTrivia ] = useState([]);
-  let triviaQuestions = [];
-
+  
   const fetchTrivia = async () => {
-    let response = await fetch("https://opentdb.com/api.php?amount=5&category=10&difficulty=medium&type=multiple");
+    const response = await fetch("https://opentdb.com/api.php?amount=5&category=10&difficulty=medium&type=multiple");
     const data = await response.json();
-    triviaQuestions = data.results;
-    console.log(triviaQuestions);
+    
+    setTrivia(data.results);
+    
+    console.log(trivia); // returns empty array
+    console.log(data); // returns array with response
   };
 
   // call function to see data
@@ -21,9 +23,7 @@ const TriviaRequest = () => {
     <>
       <h1>Trivia Quiz</h1>
       <Card body>
-        {triviaQuestions.map((quesiton,i) => {
-          <p key={i}>question</p>
-        })}
+        <p>{trivia.question}</p>
       </Card>
     </>
   );
