@@ -9,13 +9,16 @@ const TriviaRequest = () => {
   // state for showing question text
   const [ isShown, setIsShown ] = useState(false);
 
+  // state for index of question shown
+  const [ index, setIndex ] = useState(0);
+
   const fetchTrivia = async () => {
     const response = await fetch("https://opentdb.com/api.php?amount=5&category=10&difficulty=medium&type=multiple");
     const data = await response.json();
     setTrivia(data.results);
     
-    console.log(trivia); // returns empty array, then several minutes later returns response
-    console.log(data); // returns response immediately
+    //console.log(trivia); // returns empty array, then several minutes later returns response
+    //console.log(data); // returns response immediately
   };
 
   // call function to set data
@@ -24,12 +27,23 @@ const TriviaRequest = () => {
   },[]);
 
   let newQuestion = trivia.map(({question: value}) => value );
-  console.log(newQuestion);
+  //console.log(newQuestion);
 
-  let n = Math.floor(Math.random() * newQuestion.length);
   let text = "";
-  text = newQuestion[n];
+  text = newQuestion[index];
   console.log(text);
+
+  function showNext() {
+    setIndex(index + 1)
+    text = newQuestion[index];
+    console.log(text);
+    
+    if (index === newQuestion.length) {
+      setIndex(0);
+    }
+
+    return text;
+  };
 
   // function to show card with question
   const handleClick = (e) => {
@@ -45,6 +59,11 @@ const TriviaRequest = () => {
           onClick={handleClick}
         >
           Start
+        </button>
+
+        <button
+          onClick={showNext}>
+          Next
         </button>
       </Card>
 
