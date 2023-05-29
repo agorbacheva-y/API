@@ -68,16 +68,15 @@ const TriviaRequest = () => {
   };
 
   return (
-    <>
+    <div className="container">
       <h1>Trivia Quiz</h1>
-      <div className="btn-container">
-        <Button
+      <Button
           variant="info"
           onClick={handleClick}
         >
           Start
-        </Button>
-
+      </Button>
+      <div className="btn-container">
         <Button
           onClick={showPrev}>
           Previous
@@ -96,7 +95,7 @@ const TriviaRequest = () => {
           {text}
         </Card>
       )}
-    </>
+    </div>
   );
 };
 
