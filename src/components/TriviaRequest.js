@@ -35,7 +35,7 @@ const TriviaRequest = () => {
 
   let text = "";
   text = question[index];
-  //console.log(text);
+  // console.log(text);
 
   function showNext() {
     setIndex(index +1)
@@ -47,6 +47,18 @@ const TriviaRequest = () => {
     }
     
     return text;
+  };
+
+  function showPrev() {
+    setIndex(index -1)
+    text = question[index];
+    console.log(text);
+
+    if (index === 0) {
+      setIndex(question.length -1);
+
+    return text;
+    };
   };
 
   // function to show card with question
@@ -64,6 +76,11 @@ const TriviaRequest = () => {
           onClick={handleClick}
         >
           Start
+        </Button>
+
+        <Button
+          onClick={showPrev}>
+          Previous
         </Button>
 
         <p>{index +1} of {question.length}</p>
@@ -99,4 +116,4 @@ export default TriviaRequest;
   // let text = "";
   // text = trivia[n];
 
-  // console.log(text);
+  // console.log(text)
