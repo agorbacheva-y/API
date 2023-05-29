@@ -6,6 +6,9 @@ const TriviaRequest = () => {
   // state for storing response from API (array of objects)
   const [ trivia, setTrivia ] = useState([]);
 
+  // state for storing questions from API response
+  const [ question, setQuestion ] = useState([]);
+
   // state for showing question text
   const [ isShown, setIsShown ] = useState(false);
 
@@ -24,24 +27,24 @@ const TriviaRequest = () => {
   // call function to set data
   useEffect(() => {
     fetchTrivia();
+    setQuestion(trivia.map(({question: value}) => value ));
   },[]);
 
-  let newQuestion = trivia.map(({question: value}) => value );
-  //console.log(newQuestion);
+  console.log(question);
 
   let text = "";
-  text = newQuestion[index];
-  console.log(text);
+  text = question[index];
+  //console.log(text);
 
   function showNext() {
-    setIndex(index + 1)
-    text = newQuestion[index];
+    setIndex(index +1)
+    text = question[index];
     console.log(text);
     
-    if (index === newQuestion.length) {
+    if (index === question.length -1) {
       setIndex(0);
     }
-
+    
     return text;
   };
 
@@ -60,6 +63,8 @@ const TriviaRequest = () => {
         >
           Start
         </button>
+
+        <p>{index +1} of {question.length}</p>
 
         <button
           onClick={showNext}>
