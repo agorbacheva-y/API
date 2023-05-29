@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import he from "he";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 const TriviaRequest = () => {
   // state for storing response from API (array of objects)
@@ -57,20 +58,21 @@ const TriviaRequest = () => {
   return (
     <>
       <h1>Trivia Quiz</h1>
-      <Card body>
-        <button
+      <div className="btn-container">
+        <Button
+          variant="info"
           onClick={handleClick}
         >
           Start
-        </button>
+        </Button>
 
         <p>{index +1} of {question.length}</p>
 
-        <button
+        <Button
           onClick={showNext}>
           Next
-        </button>
-      </Card>
+        </Button>
+      </div>
 
       {isShown && (
         <Card body>
