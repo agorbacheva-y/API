@@ -152,8 +152,5 @@ export default TriviaRequest;
 
   //text = trivia[n]?.question; // ? checks if trivia array exists, then executes
 
-  // let n = Math.floor(Math.random() * trivia.length);
-  // let text = "";
-  // text = trivia[n];
-
-  // console.log(text)
+// data wont load until i manipulate console.log somehwere
+// so need to comment out shuffle function or get an error as array is undefined
