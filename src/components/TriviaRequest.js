@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from axios;
 import he from "he";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -11,6 +10,9 @@ const TriviaRequest = () => {
   // state for storing questions from API response
   const [ question, setQuestion ] = useState([]);
 
+  // state for loading response from API
+  const [ loading, setLoading ] = useState(false);
+
   // state for showing question text
   const [ isShown, setIsShown ] = useState(false);
 
@@ -18,32 +20,34 @@ const TriviaRequest = () => {
   const [ index, setIndex ] = useState(0);
 
   const fetchTrivia = async () => {
-    const response = await fetch("https://opentdb.com/api.php?amount=5&category=10&difficulty=medium&type=multiple");
+    setLoading(true);
+
+    let response = await fetch("https://opentdb.com/api.php?amount=5&category=10&difficulty=medium&type=multiple");
     const data = await response.json();
     setTrivia(data.results);
-    
-    //console.log(trivia); // returns empty array, then several minutes later returns response
-    //console.log(data); // returns response immediately
+    setLoading(false);
+
+    if (!trivia) {
+      alert("no data");
+    }
   };
 
-  // call function to set data
   useEffect(() => {
     fetchTrivia();
     setQuestion(trivia.map(({question: value}) => he.decode(value) ));
+    console.log(question);
   },[]);
-
-  // console.log(question);
 
   let text = "";
   text = question[index];
-  // console.log(text);
+  console.log(text);
 
   function showNext() {
-    setIndex(index +1)
+    setIndex(index + 1)
     text = question[index];
     console.log(text);
     
-    if (index === question.length -1) {
+    if (index === question.length - 1) {
       setIndex(0);
     }
     
@@ -51,12 +55,12 @@ const TriviaRequest = () => {
   };
 
   function showPrev() {
-    setIndex(index -1)
+    setIndex(index - 1)
     text = question[index];
     console.log(text);
 
     if (index === 0) {
-      setIndex(question.length -1);
+      setIndex(question.length - 1);
 
     return text;
     };
@@ -75,7 +79,7 @@ const TriviaRequest = () => {
           variant="info"
           onClick={handleClick}
         >
-          Start
+          {loading ? <p>Loading...</p> : <p>Start</p>}
       </Button>
       <div className="btn-container">
         <Button
