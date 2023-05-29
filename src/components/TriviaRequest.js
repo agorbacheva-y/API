@@ -28,10 +28,10 @@ const TriviaRequest = () => {
   // call function to set data
   useEffect(() => {
     fetchTrivia();
-    setQuestion(trivia.map(({question: value}) => value ));
+    setQuestion(trivia.map(({question: value}) => he.decode(value) ));
   },[]);
 
-  console.log(question);
+  // console.log(question);
 
   let text = "";
   text = question[index];
