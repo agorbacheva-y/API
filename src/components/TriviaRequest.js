@@ -10,6 +10,12 @@ const TriviaRequest = () => {
   // state for storing questions from API response
   const [ question, setQuestion ] = useState([]);
 
+  // state for storing incorrect answers
+  const [ incorrect, setIncorrect ] = useState([]);
+
+  // state for storing correct answers
+  const [ correct, setCorrect ] = useState([]);
+
   // state for loading response from API
   const [ loading, setLoading ] = useState(false);
 
@@ -22,7 +28,7 @@ const TriviaRequest = () => {
   const fetchTrivia = async () => {
     setLoading(true);
 
-    let response = await fetch("https://opentdb.com/api.php?amount=5&category=10&difficulty=medium&type=multiple");
+    let response = await fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple");
     const data = await response.json();
     setTrivia(data.results);
     setLoading(false);
@@ -35,13 +41,14 @@ const TriviaRequest = () => {
   useEffect(() => {
     fetchTrivia();
     setQuestion(trivia.map(({question: value}) => he.decode(value) ));
-    console.log(question);
+    setIncorrect(trivia.map(({incorrect_answers: value}) => value ));
+    setCorrect(trivia.map(({correct_answer: value}) => value ));
   },[]);
 
   let text = "";
   text = question[index];
-  console.log(text);
-
+  
+  // functions for prev and next buttons
   function showNext() {
     setIndex(index + 1)
     text = question[index];
@@ -72,6 +79,27 @@ const TriviaRequest = () => {
     setIsShown(true);
   };
 
+  // create array of multiple choices
+  let choices = incorrect.map((item, index) => ([
+    ...item, correct[index]])
+  );
+  console.log(choices);
+
+  // function for random order of multiple choice
+  const shuffle = (choices) => {
+    for (let i = choices.length -1; i > 0; i-- ) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [choices[j], choices[i]] = [choices[i], choices[j]];
+    }
+    return choices;
+  };
+
+  let multipleChoice = [];
+  multipleChoice = choices[index];
+  console.log(multipleChoice);
+  shuffle(multipleChoice);
+  console.log(multipleChoice);
+
   return (
     <div className="container">
       <h1>Trivia Quiz</h1>
@@ -96,9 +124,15 @@ const TriviaRequest = () => {
       </div>
 
       {isShown && (
-        <Card body>
-          {text}
-        </Card>
+        <div>
+          <Card body>
+            {text}
+          </Card>
+
+          <Card body>
+            {choices}
+          </Card>
+        </div>
       )}
     </div>
   );
