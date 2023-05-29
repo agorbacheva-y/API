@@ -4,7 +4,7 @@ import TriviaRequest from "./TriviaRequest";
 const Home = () => {
   return (
     <>
-      <Fetch />
+      {/* <Fetch /> */}
       <TriviaRequest />
     </>
   );
