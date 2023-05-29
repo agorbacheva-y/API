@@ -83,22 +83,22 @@ const TriviaRequest = () => {
   let choices = incorrect.map((item, index) => ([
     ...item, correct[index]])
   );
-  console.log(choices);
+  // console.log(choices);
 
   // function for random order of multiple choice
-  const shuffle = (choices) => {
-    for (let i = choices.length -1; i > 0; i-- ) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [choices[j], choices[i]] = [choices[i], choices[j]];
-    }
-    return choices;
-  };
+  // const shuffle = (choices) => {
+  //   for (let i = choices.length -1; i > 0; i-- ) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     [choices[j], choices[i]] = [choices[i], choices[j]];
+  //   }
+  //   return choices;
+  // };
 
   let multipleChoice = [];
   multipleChoice = choices[index];
   console.log(multipleChoice);
-  shuffle(multipleChoice);
-  console.log(multipleChoice);
+  // shuffle(multipleChoice);
+  // console.log(multipleChoice);
 
   return (
     <div className="container">
@@ -130,7 +130,9 @@ const TriviaRequest = () => {
           </Card>
 
           <Card body>
-            {choices}
+            <ul>
+              {multipleChoice.map((item, i) => <li key={i}>{multipleChoice[i]}</li>)}
+            </ul>
           </Card>
         </div>
       )}
