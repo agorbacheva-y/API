@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import he from "he";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Shuffle from "./Shuffle";
 
 const TriviaRequest = () => {
   // state for storing response from API (array of objects)
@@ -16,6 +17,9 @@ const TriviaRequest = () => {
   // state for storing correct answers
   const [ correct, setCorrect ] = useState([]);
 
+  // state for storing multiple choices
+  const [ choices, setChoices ] = useState([]);
+
   // state for loading response from API
   const [ loading, setLoading ] = useState(false);
 
@@ -24,6 +28,7 @@ const TriviaRequest = () => {
 
   // state for index of question shown
   const [ index, setIndex ] = useState(0);
+
 
   const fetchTrivia = async () => {
     setLoading(true);
@@ -43,6 +48,13 @@ const TriviaRequest = () => {
     setQuestion(trivia.map(({question: value}) => he.decode(value) ));
     setIncorrect(trivia.map(({incorrect_answers: value}) => value ));
     setCorrect(trivia.map(({correct_answer: value}) => value ));
+
+    // create array of multiple choices
+    setChoices(incorrect.map((item, index) => ([
+      ...item, correct[index]])
+    ));
+    console.log(choices);
+
   },[]);
 
   let text = "";
@@ -52,25 +64,23 @@ const TriviaRequest = () => {
   function showNext() {
     setIndex(index + 1)
     text = question[index];
-    console.log(text);
+    //console.log(text);
     
     if (index === question.length - 1) {
       setIndex(0);
+      return text;
     }
-    
-    return text;
   };
 
   function showPrev() {
     setIndex(index - 1)
     text = question[index];
-    console.log(text);
+    //console.log(text);
 
     if (index === 0) {
       setIndex(question.length - 1);
-
     return text;
-    };
+    }
   };
 
   // function to show card with question
@@ -78,27 +88,6 @@ const TriviaRequest = () => {
     e.preventDefault();
     setIsShown(true);
   };
-
-  // create array of multiple choices
-  let choices = incorrect.map((item, index) => ([
-    ...item, correct[index]])
-  );
-  // console.log(choices);
-
-  // function for random order of multiple choice
-  // const shuffle = (choices) => {
-  //   for (let i = choices.length -1; i > 0; i-- ) {
-  //     const j = Math.floor(Math.random() * (i + 1));
-  //     [choices[j], choices[i]] = [choices[i], choices[j]];
-  //   }
-  //   return choices;
-  // };
-
-  let multipleChoice = [];
-  multipleChoice = choices[index];
-  console.log(multipleChoice);
-  // shuffle(multipleChoice);
-  // console.log(multipleChoice);
 
   return (
     <div className="container">
@@ -131,7 +120,7 @@ const TriviaRequest = () => {
 
           <Card body>
             <ul>
-              {multipleChoice.map((item, i) => <li key={i}>{multipleChoice[i]}</li>)}
+              <Shuffle choices={choices}/>
             </ul>
           </Card>
         </div>
