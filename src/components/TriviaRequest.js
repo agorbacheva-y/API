@@ -46,14 +46,14 @@ const TriviaRequest = () => {
   useEffect(() => {
     fetchTrivia();
     setQuestion(trivia.map(({question: value}) => he.decode(value) ));
-    setIncorrect(trivia.map(({incorrect_answers: value}) => value ));
-    setCorrect(trivia.map(({correct_answer: value}) => value ));
+    setIncorrect(trivia.map(({incorrect_answers: value}) => he.decode(value) ));
+    setCorrect(trivia.map(({correct_answer: value}) => he.decode(value) ));
 
     // create array of multiple choices
     setChoices(incorrect.map((item, index) => ([
       ...item, correct[index]])
     ));
-    console.log(choices);
+    //console.log(choices);
 
   },[]);
 

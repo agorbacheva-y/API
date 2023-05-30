@@ -1,11 +1,13 @@
 import Fetch from "./Fetch";
 import TriviaRequest from "./TriviaRequest";
+import TriviaFetch from "./TriviaFetch";
 
 const Home = () => {
   return (
     <>
       {/* <Fetch /> */}
-      <TriviaRequest />
+      {/* <TriviaRequest /> */}
+      <TriviaFetch />
     </>
   );
 };
