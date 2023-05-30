@@ -40,9 +40,10 @@ const TriviaRequest = () => {
 
   useEffect(() => {
     fetchTrivia();
+    console.log(trivia);  //need to hide/unhide in order to load data fetched
     setQuestion(trivia.map(({question: value}) => he.decode(value) ));
-    setIncorrect(trivia.map(({incorrect_answers: value}) => value ));
-    setCorrect(trivia.map(({correct_answer: value}) => value ));
+    setIncorrect(trivia.map(({incorrect_answers: value}) => value )); //decode doesnt work here?
+    setCorrect(trivia.map(({correct_answer: value}) => he.decode(value) ));
   },[]);
 
   let text = "";
@@ -52,13 +53,12 @@ const TriviaRequest = () => {
   function showNext() {
     setIndex(index + 1)
     text = question[index];
-    console.log(text);
+    //console.log(text);
     
     if (index === question.length - 1) {
       setIndex(0);
+      return text;
     }
-    
-    return text;
   };
 
   function showPrev() {
@@ -68,8 +68,7 @@ const TriviaRequest = () => {
 
     if (index === 0) {
       setIndex(question.length - 1);
-
-    return text;
+      return text;
     };
   };
 
@@ -83,7 +82,7 @@ const TriviaRequest = () => {
   let choices = incorrect.map((item, index) => ([
     ...item, correct[index]])
   );
-  // console.log(choices);
+  console.log(choices);
 
   // function for random order of multiple choice
   // const shuffle = (choices) => {
