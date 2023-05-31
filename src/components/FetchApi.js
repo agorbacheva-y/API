@@ -51,7 +51,7 @@ const FetchApi = () => {
         <Card body>
           <div className="card-container">
             <Questions trivia={trivia} />
-            <MultipleChoice />
+            <MultipleChoice trivia={trivia} />
           </div>
         </Card>
       )}      
