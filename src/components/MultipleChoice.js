@@ -25,11 +25,25 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
         setIndex={setIndex}
         currentChoice={currentChoice}
       />
-      <ul>
-        {currentChoice.map((item, index) => 
-          <li key={index}>{currentChoice[index]}</li>
-        )}
-      </ul>
+      <div>
+          {currentChoice.map((item, index) => 
+            (
+              <div>
+                <input 
+                  name="mltpl.choice"
+                  key={index}
+                  id={item.id}
+                  type="radio"
+                />
+                <label htmlFor="item.id" className="mltp-choice">
+                  <p>{currentChoice[index]}</p>
+                </label>
+
+            </div>
+          ))}
+       
+        
+      </div>
     </div>
   );
 };
