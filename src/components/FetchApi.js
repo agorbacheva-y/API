@@ -49,8 +49,10 @@ const FetchApi = () => {
 
       {isShown && (
         <Card body>
-          <Questions trivia={trivia} />
-          <MultipleChoice />
+          <div className="card-container">
+            <Questions trivia={trivia} />
+            <MultipleChoice />
+          </div>
         </Card>
       )}      
     </div>
