@@ -1,9 +1,6 @@
-import { useState } from "react";
 import he from "he";
 
-const Questions = ({ trivia }) => {
-  // state for index of question shown
-  const [ index, setIndex ] = useState(0);
+const Questions = ({ trivia, index }) => {
 
   const questions = trivia.map(({question}) => he.decode(question));
   //console.log(questions);
