@@ -1,10 +1,7 @@
-import { useState } from "react";
 import he from "he";
 import QuizButton from "./QuizButton";
 
-const Questions = ({ trivia }) => {
-  // state for index of question shown
-  const [ index, setIndex ] = useState(0);
+const Questions = ({ trivia, index, setIndex }) => {
 
   const questions = trivia.map(({question}) => he.decode(question));
   //console.log(questions);
@@ -14,7 +11,7 @@ const Questions = ({ trivia }) => {
 
   return (
     <div>
-      <QuizButton questions={questions} index={index} setIndex={setIndex} />
+      <QuizButton questions={questions} currentQuestion={currentQuestion} index={index} setIndex={setIndex}/>
       <p>{currentQuestion}</p>
     </div>
   );

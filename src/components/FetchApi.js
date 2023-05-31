@@ -14,6 +14,9 @@ const FetchApi = () => {
   // state for showing question text
   const [ isShown, setIsShown ] = useState(false);
 
+  // state for index of choices shown
+  const [ index, setIndex ] = useState(0);
+
   useEffect(() => {
     const fetchTrivia = async () => {
       setLoading(true);
@@ -50,8 +53,15 @@ const FetchApi = () => {
       {isShown && (
         <Card body>
           <div className="card-container">
-            <Questions trivia={trivia} />
-            <MultipleChoice trivia={trivia} />
+            <Questions 
+              trivia={trivia} 
+              index={index} 
+              setIndex={setIndex}
+            />
+            <MultipleChoice 
+              trivia={trivia} 
+              index={index} 
+            />
           </div>
         </Card>
       )}      

@@ -1,14 +1,11 @@
-import { useState } from "react";
 import he from "he";
 
-const MultipleChoice = ({ trivia }) => {
-  // state for index of choices shown
-  const [ index, setIndex ] = useState(0);
+const MultipleChoice = ({ trivia, index }) => {
 
-  const incorrect = trivia.map(({incorrect_answers}) => incorrect_answers);
+  const incorrect = trivia.map(({incorrect_answers}) => incorrect_answers); //he.decode does not work here???
   //console.log(incorrect);
 
-  const correct = trivia.map(({correct_answer}) => correct_answer);
+  const correct = trivia.map(({correct_answer}) => he.decode(correct_answer));
   //console.log(correct);
 
   let multipleChoice = incorrect.map((item, index) => ([
@@ -17,7 +14,7 @@ const MultipleChoice = ({ trivia }) => {
   //console.log(multipleChoice);
 
   let currentChoice = multipleChoice[index];
-  //console.log(currentChoice);
+  console.log(currentChoice);
 
   return (
     <div>
