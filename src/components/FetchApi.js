@@ -1,5 +1,6 @@
 import { useState, useEffect} from "react";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import Questions from "./Questions";
 import MultipleChoice from "./MultipleChoice";
 
@@ -9,6 +10,9 @@ const FetchApi = () => {
 
   // state for loading data
   const [ loading, setLoading ] = useState(false);
+
+  // state for showing question text
+  const [ isShown, setIsShown ] = useState(false);
 
   useEffect(() => {
     const fetchTrivia = async () => {
@@ -26,14 +30,29 @@ const FetchApi = () => {
     fetchTrivia();
   },[]);
 
-  console.log(Array.isArray(trivia));
+  //console.log(Array.isArray(trivia));
+
+  // function to show card with question
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsShown(true);
+  };
 
   return (
-    <div>
-      <Card body>
-        <Questions trivia={trivia} />
-        <MultipleChoice />
-      </Card>
+    <div className="container">
+      <Button
+        variant="info"
+        onClick={handleClick}
+      >
+        {loading ? <p>Loading...</p> : <p>Start</p>}
+      </Button>
+
+      {isShown && (
+        <Card body>
+          <Questions trivia={trivia} />
+          <MultipleChoice />
+        </Card>
+      )}      
     </div>
   );
 };

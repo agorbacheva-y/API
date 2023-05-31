@@ -1,20 +1,15 @@
-import { useState } from "react";
+
 import Button from "react-bootstrap/Button";
 
-const QuizButton = ({ question, loading }) => {
-  // state for index of question shown
-  const [ index, setIndex ] = useState(0);
-
-  // state for showing question text
-  const [ isShown, setIsShown ] = useState(false);
-
+const QuizButton = ({ questions, index, setIndex }) => {
+  
   // functions for prev and next buttons
   function showNext() {
     setIndex(index + 1)
-    let currentQuestion = question[index];
+    let currentQuestion = questions[index];
     //console.log(currentQuestion);
     
-    if (index === question.length - 1) {
+    if (index === questions.length - 1) {
       setIndex(0);
       return currentQuestion;
     }
@@ -22,43 +17,28 @@ const QuizButton = ({ question, loading }) => {
 
   function showPrev() {
     setIndex(index - 1)
-    let currentQuestion = question[index];
+    let currentQuestion = questions[index];
     //console.log(currentQuestion);
 
     if (index === 0) {
-      setIndex(question.length - 1);
+      setIndex(questions.length - 1);
       return currentQuestion;
     };
   };
 
-  // function to show card with question
-  const handleClick = (e) => {
-    e.preventDefault();
-    setIsShown(true);
-  };
-
   return (
-    <div>
+    <div className="btn-container">
       <Button
-        variant="info"
-        onClick={handleClick}
-      >
-        {loading ? <p>Loading...</p> : <p>Start</p>}
+        onClick={showPrev}>
+        Previous
       </Button>
 
-      <div className="btn-container">
-        <Button
-          onClick={showPrev}>
-          Previous
-        </Button>
+      <p>{index +1} of {questions.length}</p>
 
-        <p>{index +1} of {question.length}</p>
-
-        <Button
-          onClick={showNext}>
-          Next
-        </Button>
-      </div>
+      <Button
+        onClick={showNext}>
+        Next
+      </Button>
     </div>
   );
 };
