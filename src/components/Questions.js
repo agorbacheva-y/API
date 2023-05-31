@@ -1,9 +1,15 @@
+import { useState, useEffect } from "react";
 import he from "he";
 import QuizButton from "./QuizButton";
 
-const Questions = ({ trivia, index, setIndex }) => {
+const Questions = ({ trivia, index, setIndex, currentChoice }) => {
+  // state to store questions
+  const [ questions, setQuestions ] = useState([]);
 
-  const questions = trivia.map(({question}) => he.decode(question));
+  useEffect(() => {
+    setQuestions(trivia.map(({question}) => he.decode(question)));
+  },[]);
+  
   //console.log(questions);
 
   let currentQuestion = questions[index];
@@ -11,7 +17,7 @@ const Questions = ({ trivia, index, setIndex }) => {
 
   return (
     <div>
-      <QuizButton questions={questions} currentQuestion={currentQuestion} index={index} setIndex={setIndex}/>
+      <QuizButton questions={questions} currentQuestion={currentQuestion} index={index} setIndex={setIndex} currentChoice={currentChoice}/>
       <p>{currentQuestion}</p>
     </div>
   );

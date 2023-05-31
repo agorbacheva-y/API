@@ -53,14 +53,15 @@ const FetchApi = () => {
       {isShown && (
         <Card body>
           <div className="card-container">
-            <Questions 
+            {/* <Questions 
               trivia={trivia} 
               index={index} 
               setIndex={setIndex}
-            />
+            /> */}
             <MultipleChoice 
               trivia={trivia} 
               index={index} 
+              setIndex={setIndex}
             />
           </div>
         </Card>
