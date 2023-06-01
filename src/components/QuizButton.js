@@ -9,7 +9,7 @@ const QuizButton = ({ questions, currentQuestion, index, setIndex, currentChoice
     
     if (index === questions.length - 1) {
       setIndex(0);
-      return currentQuestion && currentChoice;
+      return currentQuestion;
     }
   };
 
@@ -19,8 +19,8 @@ const QuizButton = ({ questions, currentQuestion, index, setIndex, currentChoice
 
     if (index === 0) {
       setIndex(questions.length - 1);
-      return currentQuestion && currentChoice;
-    };
+      return currentQuestion;
+    }
   };
 
   return (

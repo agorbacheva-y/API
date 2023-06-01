@@ -1,7 +1,6 @@
 import { useState, useEffect} from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Questions from "./Questions";
 import MultipleChoice from "./MultipleChoice";
 
 const FetchApi = () => {
@@ -53,11 +52,6 @@ const FetchApi = () => {
       {isShown && (
         <Card body>
           <div className="card-container">
-            {/* <Questions 
-              trivia={trivia} 
-              index={index} 
-              setIndex={setIndex}
-            /> */}
             <MultipleChoice 
               trivia={trivia} 
               index={index} 

@@ -6,6 +6,9 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   // state for multiple choice answers and question
   const [ multiChoice, setMultiChoice ] = useState([]);
 
+  // state for incorrect and correct answers
+  const [ currentChoice, setCurrentChoice ] = useState([]);
+
   useEffect(() => {
     setMultiChoice(trivia.map(
       function(item) {
@@ -18,21 +21,24 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
     ))
   },[]);
 
-  //console.log(multiChoice);
-
+  console.log(multiChoice);
+  
+  // data wont load if store incorrect and correct and choices in state???
   const incorrect = multiChoice.map(({incorrect_answers}) => incorrect_answers); //he.decode does not work here???
-  //console.log(incorrect);
-
   const correct = multiChoice.map(({correct_answer}) => he.decode(correct_answer));
-  //console.log(correct);
+  let choices = incorrect.map((item, index) => ([
+      ...item, correct[index]
+    ]) );
+  
+  console.log(incorrect);
+  console.log(correct);
+  console.log(choices);
+ 
+  useEffect(() => {
+    setCurrentChoice(choices[index]);
+  }, []);
 
-  let allAnswers = incorrect.map((item, index) => ([
-    ...item, correct[index]
-  ]) );
-  //console.log(allAnswers);
-
-  let currentChoice = allAnswers[index];
-  //console.log(currentChoice);
+  console.log(currentChoice);
 
   return (
     <div>
