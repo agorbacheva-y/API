@@ -10,6 +10,9 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   const [ incorrect, setIncorrect ] = useState([]);
   const [ correct, setCorrect ] = useState([]);
 
+  // state for selected radio option
+  const [ checked, setChecked ] = useState("");
+
   useEffect(() => {
     setMultiChoice(trivia.map(
       function(item) {
@@ -38,6 +41,12 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   let currentChoice = choices[index];
   //console.log(currentChoice);
 
+  const onChangeValue = (e) => {
+    setChecked(e.target.value);
+  };
+
+  console.log(checked);
+
   return (
     <div>
       <Questions 
@@ -50,14 +59,15 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
       <div>
           {currentChoice?.map((item, index) => 
             (
-              <div key={index}>
+              <div key={index} onChange={onChangeValue} >
                 <label 
                   htmlFor={item.id}
                   className="multi-choice">
                   <input 
-                    name="mltpl.choice"
+                    name="answer"
                     id={item.id}
                     type="radio"
+                    defaultValue={currentChoice[index]}
                   />
                   <p className="radio-choice">{currentChoice[index]}</p>
                 </label>
