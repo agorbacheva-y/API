@@ -1,12 +1,12 @@
+import { useState, useEffect } from "react";
+
 import Button from "react-bootstrap/Button";
 
 const QuizButton = ({ questions, currentQuestion, setCurrentQuestion, index, setIndex, choices, currentChoice, setCurrentChoice }) => {
-  
-  // function to set current question and choices
-  function showCurrent() {
-      setCurrentQuestion(questions[index]);
-      setCurrentChoice(choices[index]);
-  };
+  useEffect(() => {
+    setCurrentQuestion(questions[index]);
+    setCurrentChoice(choices[index]);
+  },[questions, choices, index])
 
   // functions for prev and next buttons
   function showNext() {
@@ -15,9 +15,8 @@ const QuizButton = ({ questions, currentQuestion, setCurrentQuestion, index, set
     } else {
       setIndex(prev => prev + 1);
     }
-
     console.log(index) // first click doesnt change text, works from second click???
-    showCurrent();
+
   };
 
   function showPrev() {
@@ -26,8 +25,6 @@ const QuizButton = ({ questions, currentQuestion, setCurrentQuestion, index, set
     } else {
       setIndex(prev => prev - 1);
     }
-
-    showCurrent();
   };
 
   //console.log(questions[index]);
