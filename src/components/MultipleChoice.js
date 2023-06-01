@@ -41,11 +41,18 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   let currentChoice = choices[index];
   //console.log(currentChoice);
 
-  const onChangeValue = (e) => {
-    setChecked(e.target.value);
+  const checkAnswer = () => {
+    if (checked === correct[index]) {
+      alert("correct!");
+    } else {
+      alert("incorrect");
+    }
   };
 
-  console.log(checked);
+  const onChangeValue = (e, index) => {
+    setChecked(e.target.value);
+    checkAnswer();
+  };
 
   return (
     <div>
