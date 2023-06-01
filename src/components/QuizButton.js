@@ -4,19 +4,16 @@ const QuizButton = ({ questions, currentQuestion, index, setIndex, choices, curr
   
   // functions for prev and next buttons
   function showNext() {
-    setIndex(index + 1)
-    //console.log(currentQuestion);
+    setIndex(index + 1);
     
     if (index === questions.length - 1) {
       setIndex(0);
-      return currentQuestion;
     }
 
-    if (index === choices.length - 1) {
-      setIndex(0);
-      return currentChoice;
-    }
+    currentQuestion = questions[index];
+    return currentQuestion;
   };
+  console.log(currentQuestion);
 
   function showPrev() {
     setIndex(index - 1)

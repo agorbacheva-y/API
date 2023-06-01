@@ -9,6 +9,10 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   // state for incorrect and correct answers
   const [ incorrect, setIncorrect ] = useState([]);
   const [ correct, setCorrect ] = useState([]);
+  const [ choices, setChoices ] = useState([]);
+
+  // state for storing current set of multiple choice
+  const [ currentChoice, setCurrentChoice ] = useState([]);
 
   // state for selected radio option
   const [ checked, setChecked ] = useState("");
@@ -19,7 +23,6 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
         delete item.category;
         delete item.difficulty;
         delete item.type;
-
         return item;
       }
     ));
@@ -30,29 +33,29 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
     setCorrect(multiChoice.map(({correct_answer}) => he.decode(correct_answer)));
   },[multiChoice]);
   
-  let choices = incorrect.map((item, index) => ([
+  useEffect(() => {
+    setChoices(incorrect.map((item, index) => ([
       ...item, correct[index]
-    ]) );
-  
-  //console.log(incorrect);
-  //console.log(correct);
-  //console.log(choices);
+    ]) ));
+  },[incorrect]);
  
-  let currentChoice = choices[index];
+  useEffect(() => {
+    setCurrentChoice(choices[index]);
+  },[choices]);
   //console.log(currentChoice);
 
   const checkAnswer = () => {
     if (checked === correct[index]) {
       alert("correct!");
     } else {
-      alert("incorrect");
+      alert("Try again");
     }
   };
 
-  const onChangeValue = (e, index) => {
+  const onChangeValue = (e) => {
     setChecked(e.target.value);
-    checkAnswer();
   };
+  //console.log(checked);
 
   return (
     <div>

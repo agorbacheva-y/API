@@ -6,12 +6,17 @@ const Questions = ({ trivia, index, setIndex, choices, currentChoice }) => {
   // state to store questions
   const [ questions, setQuestions ] = useState([]);
 
+  // state to store current question
+  const [ currentQuestion, setCurrentQuestion ] = useState("");
+
   useEffect(() => {
     setQuestions(trivia.map(({question}) => he.decode(question)));
   },[]);
   //console.log(questions);
 
-  let currentQuestion = questions[index];
+  useEffect(() => {
+    setCurrentQuestion(questions[index]);
+  },[questions]);
   //console.log(currentQuestion);
 
   return (
@@ -19,10 +24,11 @@ const Questions = ({ trivia, index, setIndex, choices, currentChoice }) => {
       <QuizButton 
         questions={questions} 
         currentQuestion={currentQuestion} 
-        index={index} setIndex={setIndex} 
+        index={index} 
+        setIndex={setIndex} 
         choices={choices} 
         currentChoice={currentChoice}/>
-        
+
       <p>{currentQuestion}</p>
     </div>
   );
