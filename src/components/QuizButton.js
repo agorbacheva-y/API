@@ -12,7 +12,7 @@ const QuizButton = ({ questions, currentQuestion, index, setIndex, multipleChoic
       return currentQuestion;
     }
 
-    if (index === multipleChoice.length) {
+    if (index === multipleChoice.length - 1) {
       setIndex(0);
       return currentChoice;
     }

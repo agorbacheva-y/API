@@ -2,7 +2,7 @@ import he from "he";
 import Questions from "./Questions";
 
 const MultipleChoice = ({ trivia, index, setIndex }) => {
-
+  
   const incorrect = trivia.map(({incorrect_answers}) => incorrect_answers); //he.decode does not work here???
   //console.log(incorrect);
 
