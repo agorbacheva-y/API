@@ -7,7 +7,8 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   const [ multiChoice, setMultiChoice ] = useState([]);
 
   // state for incorrect and correct answers
-  const [ currentChoice, setCurrentChoice ] = useState([]);
+  const [ incorrect, setIncorrect ] = useState([]);
+  const [ correct, setCorrect ] = useState([]);
 
   useEffect(() => {
     setMultiChoice(trivia.map(
@@ -18,27 +19,24 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
 
         return item;
       }
-    ))
+    ));
   },[]);
 
-  console.log(multiChoice);
+  useEffect(() => {
+    setIncorrect(multiChoice.map(({incorrect_answers}) => incorrect_answers));
+    setCorrect(multiChoice.map(({correct_answer}) => he.decode(correct_answer)));
+  },[multiChoice]);
   
-  // data wont load if store incorrect and correct and choices in state???
-  const incorrect = multiChoice.map(({incorrect_answers}) => incorrect_answers); //he.decode does not work here???
-  const correct = multiChoice.map(({correct_answer}) => he.decode(correct_answer));
   let choices = incorrect.map((item, index) => ([
       ...item, correct[index]
     ]) );
   
-  console.log(incorrect);
-  console.log(correct);
-  console.log(choices);
+  //console.log(incorrect);
+  //console.log(correct);
+  //console.log(choices);
  
-  useEffect(() => {
-    setCurrentChoice(choices[index]);
-  }, []);
-
-  console.log(currentChoice);
+  let currentChoice = choices[index];
+  //console.log(currentChoice);
 
   return (
     <div>
@@ -46,22 +44,22 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
         trivia={trivia} 
         index={index} 
         setIndex={setIndex}
-        multipleChoice={multipleChoice}
+        choices={choices}
         currentChoice={currentChoice}
       />
       <div>
           {currentChoice?.map((item, index) => 
             (
               <div key={index}>
-                <input 
-                  name="mltpl.choice"
-                  id={item.id}
-                  type="radio"
-                />
                 <label 
-                  htmlFor="item.id" 
-                  className="mltp-choice">
-                  <p>{currentChoice[index]}</p>
+                  htmlFor={item.id}
+                  className="multi-choice">
+                  <input 
+                    name="mltpl.choice"
+                    id={item.id}
+                    type="radio"
+                  />
+                  <p className="radio-choice">{currentChoice[index]}</p>
                 </label>
             </div>
           ))}

@@ -22,6 +22,11 @@
   align-items: center;
 }
 
-.mltp-choice {
-  padding-left: 1rem;
+.multi-choice {
+  display: flex;
+  align-items: baseline;
+}
+
+.radio-choice {
+  padding-left: 0.5rem;
 }
