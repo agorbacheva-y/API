@@ -9,7 +9,6 @@ const Questions = ({ trivia, index, setIndex, currentChoice }) => {
   useEffect(() => {
     setQuestions(trivia.map(({question}) => he.decode(question)));
   },[]);
-  
   //console.log(questions);
 
   let currentQuestion = questions[index];

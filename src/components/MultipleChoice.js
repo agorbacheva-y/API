@@ -1,20 +1,37 @@
+import { useState, useEffect} from "react";
 import he from "he";
 import Questions from "./Questions";
 
 const MultipleChoice = ({ trivia, index, setIndex }) => {
+  // state for multiple choice answers and question
+  const [ multiChoice, setMultiChoice ] = useState([]);
 
-  const incorrect = trivia.map(({incorrect_answers}) => incorrect_answers); //he.decode does not work here???
+  useEffect(() => {
+    setMultiChoice(trivia.map(
+      function(item) {
+        delete item.category;
+        delete item.difficulty;
+        delete item.type;
+
+        return item;
+      }
+    ))
+  },[]);
+
+  //console.log(multiChoice);
+
+  const incorrect = multiChoice.map(({incorrect_answers}) => incorrect_answers); //he.decode does not work here???
   //console.log(incorrect);
 
-  const correct = trivia.map(({correct_answer}) => he.decode(correct_answer));
+  const correct = multiChoice.map(({correct_answer}) => he.decode(correct_answer));
   //console.log(correct);
 
-  let multipleChoice = incorrect.map((item, index) => ([
+  let allAnswers = incorrect.map((item, index) => ([
     ...item, correct[index]
   ]) );
-  //console.log(multipleChoice);
+  //console.log(allAnswers);
 
-  let currentChoice = multipleChoice[index];
+  let currentChoice = allAnswers[index];
   //console.log(currentChoice);
 
   return (
@@ -26,7 +43,7 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
         currentChoice={currentChoice}
       />
       <div>
-          {currentChoice.map((item, index) => 
+          {currentChoice?.map((item, index) => 
             (
               <div key={index}>
                 <input 
@@ -39,11 +56,8 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
                   className="mltp-choice">
                   <p>{currentChoice[index]}</p>
                 </label>
-
             </div>
           ))}
-       
-        
       </div>
     </div>
   );
