@@ -10,27 +10,28 @@ const QuizButton = ({ questions, currentQuestion, setCurrentQuestion, index, set
 
   // functions for prev and next buttons
   function showNext() {
-    setIndex(index + 1);
-    
-    if (index === questions.length - 1) {
+    if (index === questions.length -1) {
       setIndex(0);
+    } else {
+      setIndex(prev => prev + 1);
     }
 
+    console.log(index) // first click doesnt change text, works from second click???
     showCurrent();
   };
 
   function showPrev() {
-    setIndex(index - 1)
-
     if (index === 0) {
       setIndex(questions.length - 1);
+    } else {
+      setIndex(prev => prev - 1);
     }
 
     showCurrent();
   };
 
-  console.log(questions[index]);
-  console.log(choices[index]);
+  //console.log(questions[index]);
+  //console.log(choices[index]);
 
   return (
     <div className="btn-container">
@@ -39,7 +40,7 @@ const QuizButton = ({ questions, currentQuestion, setCurrentQuestion, index, set
         Previous
       </Button>
 
-      <p>{index +1} of {questions.length}</p>
+      <p>{index + 1} of {questions.length}</p>
 
       <Button
         onClick={showNext}>
