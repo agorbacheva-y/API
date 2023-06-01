@@ -23,6 +23,7 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
         trivia={trivia} 
         index={index} 
         setIndex={setIndex}
+        multipleChoice={multipleChoice}
         currentChoice={currentChoice}
       />
       <div>
