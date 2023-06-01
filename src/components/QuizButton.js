@@ -1,7 +1,13 @@
 import Button from "react-bootstrap/Button";
 
-const QuizButton = ({ questions, currentQuestion, index, setIndex, choices, currentChoice }) => {
+const QuizButton = ({ questions, currentQuestion, setCurrentQuestion, index, setIndex, choices, currentChoice, setCurrentChoice }) => {
   
+  // function to set current question and choices
+  function showCurrent() {
+      setCurrentQuestion(questions[index]);
+      setCurrentChoice(choices[index]);
+  };
+
   // functions for prev and next buttons
   function showNext() {
     setIndex(index + 1);
@@ -10,25 +16,21 @@ const QuizButton = ({ questions, currentQuestion, index, setIndex, choices, curr
       setIndex(0);
     }
 
-    currentQuestion = questions[index];
-    return currentQuestion;
+    showCurrent();
   };
-  console.log(currentQuestion);
 
   function showPrev() {
     setIndex(index - 1)
-    //console.log(currentQuestion);
 
     if (index === 0) {
       setIndex(questions.length - 1);
-      return currentQuestion;
-    };
-
-    if (index === 0) {
-      setIndex(choices.length - 1);
-      return currentChoice;
     }
+
+    showCurrent();
   };
+
+  console.log(questions[index]);
+  console.log(choices[index]);
 
   return (
     <div className="btn-container">

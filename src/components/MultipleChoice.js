@@ -65,6 +65,7 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
         setIndex={setIndex}
         choices={choices}
         currentChoice={currentChoice}
+        setCurrentChoice={setCurrentChoice}
       />
       <div>
           {currentChoice?.map((item, index) => 

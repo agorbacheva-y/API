@@ -1,9 +1,11 @@
-const Check = () => {
+const Check = ({ checked, correct, index }) => {
 
-
-  return (
-    <div>check</div>
-  );
-};
-
+    if (checked === correct[index]) {
+      alert("correct!");
+    } else {
+      alert("Try again");
+    }
+  
+    
+  }
 export default Check;
