@@ -17,7 +17,7 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   // state for selected radio option
   const [ checked, setChecked ] = useState("");
 
-  useEffect(() => {
+  useEffect((trivia) => {
     setMultiChoice(trivia.map(
       function(item) {
         delete item.category;
@@ -28,18 +28,18 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
     ));
   },[]);
 
-  useEffect(() => {
+  useEffect((multiChoice) => {
     setIncorrect(multiChoice.map(({incorrect_answers}) => incorrect_answers)); //he.decode doesn't work here???
     setCorrect(multiChoice.map(({correct_answer}) => he.decode(correct_answer)));
   },[multiChoice]);
   
-  useEffect(() => {
+  useEffect((incorrect, correct) => {
     setChoices(incorrect.map((item, index) => ([
       ...item, correct[index]
     ]) ));
   },[incorrect]);
  
-  useEffect(() => {
+  useEffect((choices, index) => {
     setCurrentChoice(choices[index]);
   },[choices]);
   //console.log(currentChoice);
