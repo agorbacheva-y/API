@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
-
 import Button from "react-bootstrap/Button";
+import Points from "./Points";
 
 const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, setCurrentChoice, setChecked, checked, correct }) => {
   // state for points
   const [ points, setPoints ] = useState(0);
+
+  // state for overlay with final points
+  const [ show, setShow ] = useState(false);
   
   useEffect(() => {
     setCurrentQuestion(questions[index]);
@@ -21,11 +24,11 @@ const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, s
   // functions for prev and next buttons
   function showNext() {
     checkAnswer();
+    setIndex(prev => prev + 1);
 
-    if (index === questions.length -1) {
+    if (index === questions.length - 1) {
+      setShow(true);
       setIndex(0);
-    } else {
-      setIndex(prev => prev + 1);
     }
   };
 
@@ -37,32 +40,38 @@ const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, s
   //   }
   // };
 
-  console.log(points);
+  //console.log(points);
 
   const resetValue = () => {
     setChecked(null);
-  }
-
-  //console.log(questions[index]);
-  //console.log(choices[index]);
-
+  };
+  
   return (
-    <div className="btn-container">
-      {/* <Button
-        onClick={() => (showPrev(), resetValue())}
-      >
-        Previous
-      </Button> */}
+    <div>
+      <div className="btn-container">
+        {/* <Button
+          onClick={() => (showPrev(), resetValue())}
+        >
+          Previous
+        </Button> */}
 
-      <p>{index + 1} of {questions.length}</p>
+        <p>{index + 1} of {questions.length}</p>
 
-      <Button
-        onClick={() => (showNext(), resetValue())}
-        disabled={!checked}
-      >
-        Next
-      </Button>
+        <Button
+          onClick={() => (showNext(), resetValue())}
+          disabled={!checked}
+        >
+          Next
+        </Button>
+      </div>
+
+      <div>
+        {show && (
+          <Points />
+        )}
+      </div>
     </div>
+    
   );
 };
 
