@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import he from "he";
 import QuizButton from "./QuizButton";
 
-const Questions = ({ trivia, index, setIndex, choices, currentChoice, setCurrentChoice, setChecked }) => {
+const Questions = ({ trivia, index, setIndex, choices, currentChoice, setCurrentChoice, setChecked, checked, correct }) => {
   // state to store questions
   const [ questions, setQuestions ] = useState([]);
 
@@ -31,6 +31,8 @@ const Questions = ({ trivia, index, setIndex, choices, currentChoice, setCurrent
         currentChoice={currentChoice}
         setCurrentChoice={setCurrentChoice}
         setChecked={setChecked}
+        checked={checked}
+        correct={correct}
         />
 
       <p>{currentQuestion}</p>

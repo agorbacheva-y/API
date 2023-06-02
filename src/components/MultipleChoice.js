@@ -17,8 +17,7 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   // state for selected radio option
   const [ checked, setChecked ] = useState("");
 
-  // state for points
-  const [ points, setPoints ] = useState(0);
+
 
   useEffect(() => {
     setMultiChoice(trivia.map(
@@ -47,23 +46,15 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   },[choices]);
   //console.log(currentChoice);
 
-  // function to check correct answer
-  const checkAnswer = () => {
-    if (checked === correct[index]) {
-      alert("Correct!");
-      setPoints((prev) => prev + 1);
-    } else {
-      alert("Try again");
-    }
-  };
+
 
   const onChangeValue = (e) => {
-    setChecked(e.target.value, checkAnswer());
+    setChecked(e.target.value);
   };
 
   //console.log(checked)
   //console.log(correct[index])
-  console.log(points);
+  //console.log(points);
 
   return (
     <div>
@@ -75,6 +66,8 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
         currentChoice={currentChoice}
         setCurrentChoice={setCurrentChoice}
         setChecked={setChecked}
+        checked={checked}
+        correct={correct}
       />
       <div>
           {currentChoice?.map((item, index) => 

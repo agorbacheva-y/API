@@ -2,14 +2,26 @@ import { useState, useEffect } from "react";
 
 import Button from "react-bootstrap/Button";
 
-const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, setCurrentChoice, setChecked }) => {
+const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, setCurrentChoice, setChecked, checked, correct }) => {
+  // state for points
+  const [ points, setPoints ] = useState(0);
+  
   useEffect(() => {
     setCurrentQuestion(questions[index]);
     setCurrentChoice(choices[index]);
   },[questions, choices, index])
 
+  // function to check correct answer
+  const checkAnswer = () => {
+    if (checked === correct[index]) {
+      setPoints((prev) => prev + 1);
+    }
+  };
+
   // functions for prev and next buttons
   function showNext() {
+    checkAnswer();
+
     if (index === questions.length -1) {
       setIndex(0);
     } else {
@@ -24,6 +36,8 @@ const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, s
       setIndex(prev => prev - 1);
     }
   };
+
+  console.log(points);
 
   const resetValue = () => {
     setChecked(null);
