@@ -1,8 +1,8 @@
-const Points = () => {
+const Points = ({ points }) => {
   return (
     <div className="overlay">
       <div className="content">
-       <p>points</p>  
+       <p>You got {points} answers correct!</p>  
       </div>
     </div>
   );

@@ -46,10 +46,11 @@
 }
 
 .content {
-  margin: 30% auto;
+  margin: 10% auto;
   background-color: white;
   border-radius: 0.25rem;
-  width: 70%;
+  max-width: 50%;
+  min-height: 40%;
   padding: 2rem;
   position: relative;
   text-align: center;
