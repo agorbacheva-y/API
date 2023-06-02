@@ -49,14 +49,17 @@ const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, s
   return (
     <div className="btn-container">
       <Button
-        onClick={() => (showPrev(), resetValue())}>
+        onClick={() => (showPrev(), resetValue())}
+      >
         Previous
       </Button>
 
       <p>{index + 1} of {questions.length}</p>
 
       <Button
-        onClick={showNext}>
+        onClick={() => (showNext(), resetValue())}
+        disabled={!checked}
+      >
         Next
       </Button>
     </div>
