@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import Button from "react-bootstrap/Button";
 
-const QuizButton = ({ questions, index, setIndex, choices }) => {
-  useEffect((setCurrentChoice, setCurrentQuestion) => {
+const QuizButton = ({ questions, currentQuestion, setCurrentQuestion, index, setIndex, choices, currentChoice, setCurrentChoice }) => {
+  useEffect(() => {
     setCurrentQuestion(questions[index]);
     setCurrentChoice(choices[index]);
   },[questions, choices, index])
