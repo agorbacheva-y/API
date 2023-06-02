@@ -10,6 +10,9 @@ const FetchApi = () => {
   // state for loading data
   const [ loading, setLoading ] = useState(false);
 
+  // state for storing question, correct, incorrect, nr
+  const [ triviaQues, setTriviaQues ] = useState([]);
+
   // state for showing question text
   const [ isShown, setIsShown ] = useState(false);
 
@@ -31,6 +34,13 @@ const FetchApi = () => {
       
     fetchTrivia();
   },[]);
+
+  useEffect(() => {
+    setTriviaQues(trivia.map(({category, difficulty, type, ...keepAttrs}) => keepAttrs));
+  },[trivia]);
+
+  console.log(trivia)
+  console.log(triviaQues);
 
   //console.log(Array.isArray(trivia));
 
