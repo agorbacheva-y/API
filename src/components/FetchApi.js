@@ -42,8 +42,10 @@ const FetchApi = () => {
 
   return (
     <div className="container">
+      <h1>Trivia Quiz</h1>
       <Button
         variant="info"
+        className="m-3"
         onClick={handleClick}
       >
         {loading ? <p>Loading...</p> : <p>Start</p>}
