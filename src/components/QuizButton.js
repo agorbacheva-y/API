@@ -29,13 +29,13 @@ const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, s
     }
   };
 
-  function showPrev() {
-    if (index === 0) {
-      setIndex(questions.length - 1);
-    } else {
-      setIndex(prev => prev - 1);
-    }
-  };
+  // function showPrev() {
+  //   if (index === 0) {
+  //     setIndex(questions.length - 1);
+  //   } else {
+  //     setIndex(prev => prev - 1);
+  //   }
+  // };
 
   console.log(points);
 
@@ -48,11 +48,11 @@ const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, s
 
   return (
     <div className="btn-container">
-      <Button
+      {/* <Button
         onClick={() => (showPrev(), resetValue())}
       >
         Previous
-      </Button>
+      </Button> */}
 
       <p>{index + 1} of {questions.length}</p>
 
@@ -67,3 +67,5 @@ const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, s
 };
 
 export default QuizButton;
+
+// prev btn messes up the points system...
