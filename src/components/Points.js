@@ -1,10 +1,11 @@
 import Button from "react-bootstrap/Button";
 
-const Points = ({ points, setShow }) => {
+const Points = ({ points, setShow, triviaQues }) => {
   return (
     <div className="overlay">
       <div className="content">
-        <p>You got {points} answers correct!</p> 
+        <h1>Your score</h1> 
+        <p>{points} out of {triviaQues.length}</p>
         <Button
           variant="primary"
           onClick={() => setShow(false)}
