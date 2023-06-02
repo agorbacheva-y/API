@@ -57,6 +57,9 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
     setChecked(e.target.value, checkAnswer());
   };
 
+  console.log(checked)
+  console.log(correct[index])
+
   return (
     <div>
       <Questions 
@@ -66,11 +69,12 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
         choices={choices}
         currentChoice={currentChoice}
         setCurrentChoice={setCurrentChoice}
+        setChecked={setChecked}
       />
       <div>
           {currentChoice?.map((item, index) => 
             (
-              <div key={index} onChange={onChangeValue} >
+              <div key={index} >
                 <label 
                   htmlFor={item.id}
                   className="multi-choice">
@@ -79,6 +83,8 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
                     id={item.id}
                     type="radio"
                     defaultValue={currentChoice[index]}
+                    checked={checked === currentChoice[index]}
+                    onChange={onChangeValue}
                   />
                   <p className="radio-choice">{currentChoice[index]}</p>
                 </label>

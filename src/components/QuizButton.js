@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import Button from "react-bootstrap/Button";
 
-const QuizButton = ({ questions, currentQuestion, setCurrentQuestion, index, setIndex, choices, currentChoice, setCurrentChoice }) => {
+const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, setCurrentChoice, setChecked }) => {
   useEffect(() => {
     setCurrentQuestion(questions[index]);
     setCurrentChoice(choices[index]);
@@ -25,13 +25,17 @@ const QuizButton = ({ questions, currentQuestion, setCurrentQuestion, index, set
     }
   };
 
+  const resetValue = () => {
+    setChecked(null);
+  }
+
   //console.log(questions[index]);
   //console.log(choices[index]);
 
   return (
     <div className="btn-container">
       <Button
-        onClick={showPrev}>
+        onClick={() => (showPrev(), resetValue())}>
         Previous
       </Button>
 
