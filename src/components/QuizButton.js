@@ -67,7 +67,7 @@ const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, s
 
       <div>
         {show && (
-          <Points points={points} />
+          <Points points={points} setShow={setShow}/>
         )}
       </div>
     </div>
