@@ -39,6 +39,11 @@ const FetchApi = () => {
     setTriviaQues(trivia.map(({category, difficulty, type, ...keepAttrs}) => keepAttrs));
   },[trivia]);
 
+  useEffect(() => {
+    triviaQues.forEach((object, i) =>
+      object.Number = i + 1);
+  },[triviaQues])
+
   console.log(trivia)
   console.log(triviaQues);
 
