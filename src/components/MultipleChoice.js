@@ -29,7 +29,7 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   },[]);
 
   useEffect(() => {
-    setIncorrect(multiChoice.map(({incorrect_answers}) => incorrect_answers));
+    setIncorrect(multiChoice.map(({incorrect_answers}) => incorrect_answers)); //he.decode doesn't work here???
     setCorrect(multiChoice.map(({correct_answer}) => he.decode(correct_answer)));
   },[multiChoice]);
   
@@ -44,18 +44,18 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   },[choices]);
   //console.log(currentChoice);
 
+  // function to check correct answer
   const checkAnswer = () => {
     if (checked === correct[index]) {
-      alert("correct!");
+      alert("Correct!");
     } else {
       alert("Try again");
     }
   };
 
   const onChangeValue = (e) => {
-    setChecked(e.target.value);
+    setChecked(e.target.value, checkAnswer());
   };
-  //console.log(checked);
 
   return (
     <div>

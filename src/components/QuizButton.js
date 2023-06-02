@@ -15,8 +15,6 @@ const QuizButton = ({ questions, currentQuestion, setCurrentQuestion, index, set
     } else {
       setIndex(prev => prev + 1);
     }
-    console.log(index) // first click doesnt change text, works from second click???
-
   };
 
   function showPrev() {
