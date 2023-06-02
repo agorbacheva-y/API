@@ -3,9 +3,6 @@ import he from "he";
 import Questions from "./Questions";
 
 const MultipleChoice = ({ trivia, index, setIndex }) => {
-  // state for multiple choice answers and question
-  const [ multiChoice, setMultiChoice ] = useState([]);
-
   // state for incorrect and correct answers
   const [ incorrect, setIncorrect ] = useState([]);
   const [ correct, setCorrect ] = useState([]);
@@ -17,23 +14,10 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   // state for selected radio option
   const [ checked, setChecked ] = useState("");
 
-
-
   useEffect(() => {
-    setMultiChoice(trivia.map(
-      function(item) {
-        delete item.category;
-        delete item.difficulty;
-        delete item.type;
-        return item;
-      }
-    ));
-  },[]);
-
-  useEffect(() => {
-    setIncorrect(multiChoice.map(({incorrect_answers}) => incorrect_answers)); //he.decode doesn't work here???
-    setCorrect(multiChoice.map(({correct_answer}) => he.decode(correct_answer)));
-  },[multiChoice]);
+    setIncorrect(trivia.map(({incorrect_answers}) => incorrect_answers)); //he.decode doesn't work here???
+    setCorrect(trivia.map(({correct_answer}) => he.decode(correct_answer)));
+  },[trivia]);
   
   useEffect(() => {
     setChoices(incorrect.map((item, index) => ([
@@ -46,12 +30,9 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   },[choices]);
   //console.log(currentChoice);
 
-
-
   const onChangeValue = (e) => {
     setChecked(e.target.value);
   };
-
   //console.log(checked)
   //console.log(correct[index])
   //console.log(points);
