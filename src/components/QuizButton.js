@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Points from "./Points";
 
-const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, setCurrentChoice, setChecked, checked, correct }) => {
+const QuizButton = ({ triviaQues, setCurrentQuestion, index, setIndex, choices, setCurrentChoice, setChecked, checked, correct }) => {
   // state for points
   const [ points, setPoints ] = useState(0);
 
@@ -10,9 +10,9 @@ const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, s
   const [ show, setShow ] = useState(false);
   
   useEffect(() => {
-    setCurrentQuestion(questions[index]);
+    setCurrentQuestion(triviaQues[index]);
     setCurrentChoice(choices[index]);
-  },[questions, choices, index])
+  },[triviaQues, choices, index])
 
   // function to check correct answer
   const checkAnswer = () => {
@@ -26,7 +26,7 @@ const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, s
     checkAnswer();
     setIndex(prev => prev + 1);
 
-    if (index === questions.length - 1) {
+    if (index === triviaQues.length - 1) {
       setShow(true);
       setIndex(0);
     }
@@ -55,7 +55,7 @@ const QuizButton = ({ questions, setCurrentQuestion, index, setIndex, choices, s
           Previous
         </Button> */}
 
-        <p>{index + 1} of {questions.length}</p>
+        <p>{index + 1} of {triviaQues.length}</p>
 
         <Button
           onClick={() => (showNext(), resetValue())}

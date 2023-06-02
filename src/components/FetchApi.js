@@ -44,8 +44,8 @@ const FetchApi = () => {
       object.Number = i + 1);
   },[triviaQues])
 
-  console.log(trivia)
-  console.log(triviaQues);
+  //console.log(trivia)
+  //console.log(triviaQues);
 
   //console.log(Array.isArray(trivia));
 
@@ -70,7 +70,7 @@ const FetchApi = () => {
         <Card body>
           <div className="card-container">
             <MultipleChoice 
-              trivia={trivia} 
+              triviaQues={triviaQues} 
               index={index} 
               setIndex={setIndex}
             />

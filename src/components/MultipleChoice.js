@@ -2,7 +2,7 @@ import { useState, useEffect} from "react";
 import he from "he";
 import Questions from "./Questions";
 
-const MultipleChoice = ({ trivia, index, setIndex }) => {
+const MultipleChoice = ({ triviaQues, index, setIndex }) => {
   // state for incorrect and correct answers
   const [ incorrect, setIncorrect ] = useState([]);
   const [ correct, setCorrect ] = useState([]);
@@ -15,9 +15,9 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   const [ checked, setChecked ] = useState("");
 
   useEffect(() => {
-    setIncorrect(trivia.map(({incorrect_answers}) => incorrect_answers)); //he.decode doesn't work here???
-    setCorrect(trivia.map(({correct_answer}) => he.decode(correct_answer)));
-  },[trivia]);
+    setIncorrect(triviaQues.map(({incorrect_answers}) => incorrect_answers)); //he.decode doesn't work here???
+    setCorrect(triviaQues.map(({correct_answer}) => he.decode(correct_answer)));
+  },[triviaQues]);
   
   useEffect(() => {
     setChoices(incorrect.map((item, index) => ([
@@ -40,7 +40,7 @@ const MultipleChoice = ({ trivia, index, setIndex }) => {
   return (
     <div>
       <Questions 
-        trivia={trivia} 
+        triviaQues={triviaQues} 
         index={index} 
         setIndex={setIndex}
         choices={choices}
