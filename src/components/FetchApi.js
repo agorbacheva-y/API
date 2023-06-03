@@ -41,11 +41,15 @@ const FetchApi = () => {
 
   useEffect(() => {
     triviaQues.forEach((object, i) =>
-      object.Number = i + 1);
+      object.number = i + 1);
+    triviaQues.forEach((object) => 
+      object.choices = object.incorrect_answers);
+    triviaQues.forEach((object) => 
+      object.choices.push(object.correct_answer))
   },[triviaQues])
 
   //console.log(trivia)
-  //console.log(triviaQues);
+  console.log(triviaQues);
 
   //console.log(Array.isArray(trivia));
 
