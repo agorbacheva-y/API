@@ -53,9 +53,9 @@
   color: white;
   border-radius: 2rem;
   width: 85vw;
-  min-height: 2.75rem;
+  height: 3rem;
   border: none;
-  margin: 0.25rem;
+  margin: 0.5rem;
 }
 
 .overlay {
