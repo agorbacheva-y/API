@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState } from "react";
 import he from "he";
 import Questions from "./Questions";
 
@@ -9,7 +9,7 @@ const MultipleChoice = ({ triviaQues, index, setIndex }) => {
   const onChangeValue = (e) => {
     setChecked(e.target.value);
   };
-  console.log(checked)
+  //console.log(triviaQues[index].choices)
 
   return (
     <div>
@@ -35,7 +35,7 @@ const MultipleChoice = ({ triviaQues, index, setIndex }) => {
                     checked={checked === item}
                     onChange={onChangeValue}
                   />
-                  <p className="radio-choice">{item}</p>
+                  <p className="radio-choice">{he.decode(item)}</p>
                 </label>
             </div>
           ))}

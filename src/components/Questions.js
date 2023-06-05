@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import he from "he";
 import QuizButton from "./QuizButton";
 
@@ -13,7 +12,7 @@ const Questions = ({ triviaQues, index, setIndex, setChecked, checked }) => {
         checked={checked}
         />
 
-      <p>{triviaQues[index].question}</p>
+      <p>{he.decode(triviaQues[index].question)}</p>
     </div>
   );
 };

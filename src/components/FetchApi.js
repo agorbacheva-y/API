@@ -50,7 +50,6 @@ const FetchApi = () => {
 
   //console.log(trivia)
   //console.log(triviaQues);
-
   //console.log(Array.isArray(trivia));
 
   // function to show card with question
