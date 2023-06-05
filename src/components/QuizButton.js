@@ -66,7 +66,6 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
         )}
       </div>
     </div>
-    
   );
 };
 

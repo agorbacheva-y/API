@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import MultipleChoice from "./MultipleChoice";
 import Questions from "./Questions";
-
+import QuizButton from "./QuizButton";
 
 const FetchApi = () => {
   // state to store api data
@@ -20,6 +20,9 @@ const FetchApi = () => {
 
   // state for index of choices shown
   const [ index, setIndex ] = useState(0);
+
+  // state for selected radio option
+  const [ checked, setChecked ] = useState("");
 
   useEffect(() => {
     const fetchTrivia = async () => {
@@ -71,6 +74,14 @@ const FetchApi = () => {
         {loading ? <p>Loading...</p> : <p>Start</p>}
       </Button>
 
+      <QuizButton 
+        triviaQues={triviaQues} 
+        index={index} 
+        setIndex={setIndex} 
+        setChecked={setChecked}
+        checked={checked}
+      />
+
       {isShown && (
         <div className="card-container">
           <Questions 
@@ -83,11 +94,13 @@ const FetchApi = () => {
 
       {isShown && (
         <Card.Body>
-          <div className="card-container">
+          <div className="multi-choice-container">
             <MultipleChoice 
               triviaQues={triviaQues} 
               index={index} 
               setIndex={setIndex}
+              checked={checked}
+              setChecked={setChecked}
             />
           </div>
         </Card.Body>

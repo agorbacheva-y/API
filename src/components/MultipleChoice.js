@@ -1,10 +1,6 @@
-import { useState } from "react";
 import he from "he";
-import QuizButton from "./QuizButton";
 
-const MultipleChoice = ({ triviaQues, index, setIndex }) => {
-  // state for selected radio option
-  const [ checked, setChecked ] = useState("");
+const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
 
   const onChangeValue = (e) => {
     setChecked(e.target.value);
@@ -13,29 +9,19 @@ const MultipleChoice = ({ triviaQues, index, setIndex }) => {
 
   return (
     <div>
-      <QuizButton 
-        triviaQues={triviaQues} 
-        index={index} 
-        setIndex={setIndex} 
-        setChecked={setChecked}
-        checked={checked}
-      />
-      <div>
-        {triviaQues[index].choices?.map((item, index) => 
-          (
-            <div key={index} className="multi-choice-container">
-
-                <button 
-                  className="multi-choice"
-                  type="button"
-                  value={item}
-                  onClick={onChangeValue}
-                >
-                  {he.decode(item)}
-                </button>
-          </div>
-        ))}
-      </div>
+      {triviaQues[index].choices?.map((item, index) => 
+        (
+          <div key={index}>
+            <button 
+              className="multi-choice"
+              type="button"
+              value={item}
+              onClick={onChangeValue}
+            >
+              {he.decode(item)}
+            </button>
+        </div>
+      ))}
     </div>
   );
 };
