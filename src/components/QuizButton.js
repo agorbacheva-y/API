@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Points from "./Points";
 
 const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
@@ -20,6 +19,7 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
   function showNext() {
     checkAnswer();
     setIndex(prev => prev + 1);
+    resetValue();
 
     if (index === triviaQues.length - 1) {
       setShow(true);
@@ -54,7 +54,7 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
 
         <button
           className="next-btn"
-          onClick={() => (showNext(), resetValue())}
+          onClick={showNext}
           disabled={!checked}
         >
           Next

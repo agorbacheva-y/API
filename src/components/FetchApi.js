@@ -1,6 +1,5 @@
 import { useState, useEffect} from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import MultipleChoice from "./MultipleChoice";
 import Questions from "./Questions";
 import QuizButton from "./QuizButton";
