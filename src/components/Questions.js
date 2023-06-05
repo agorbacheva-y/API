@@ -1,17 +1,8 @@
 import he from "he";
-import QuizButton from "./QuizButton";
 
-const Questions = ({ triviaQues, index, setIndex, setChecked, checked }) => {
+const Questions = ({ triviaQues, index }) => {
   return (
     <div>
-      <QuizButton 
-        triviaQues={triviaQues} 
-        index={index} 
-        setIndex={setIndex} 
-        setChecked={setChecked}
-        checked={checked}
-        />
-
       <p>{he.decode(triviaQues[index].question)}</p>
     </div>
   );

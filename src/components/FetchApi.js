@@ -2,6 +2,8 @@ import { useState, useEffect} from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import MultipleChoice from "./MultipleChoice";
+import Questions from "./Questions";
+
 
 const FetchApi = () => {
   // state to store api data
@@ -70,15 +72,25 @@ const FetchApi = () => {
       </Button>
 
       {isShown && (
-          <Card.Body>
-            <div className="card-container">
-              <MultipleChoice 
-                triviaQues={triviaQues} 
-                index={index} 
-                setIndex={setIndex}
-              />
-            </div>
-          </Card.Body>
+        <div className="card-container">
+          <Questions 
+            triviaQues={triviaQues} 
+            index={index} 
+            setIndex={setIndex}
+          />
+        </div>
+      )}
+
+      {isShown && (
+        <Card.Body>
+          <div className="card-container">
+            <MultipleChoice 
+              triviaQues={triviaQues} 
+              index={index} 
+              setIndex={setIndex}
+            />
+          </div>
+        </Card.Body>
       )}      
     </div>
   );
