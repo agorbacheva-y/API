@@ -9,7 +9,7 @@ const MultipleChoice = ({ triviaQues, index, setIndex }) => {
   const onChangeValue = (e) => {
     setChecked(e.target.value);
   };
-  //console.log(triviaQues[index].choices)
+  console.log(checked)
 
   return (
     <div>
@@ -24,19 +24,15 @@ const MultipleChoice = ({ triviaQues, index, setIndex }) => {
           {triviaQues[index].choices?.map((item, index) => 
             (
               <div key={index} >
-                <label 
-                  htmlFor={item.id}
-                  className="multi-choice">
-                  <input 
-                    name="answer"
-                    id={item.id}
-                    type="radio"
-                    defaultValue={item}
-                    checked={checked === item}
-                    onChange={onChangeValue}
-                  />
-                  <p className="radio-choice">{he.decode(item)}</p>
-                </label>
+
+                  <button 
+                    className="multi-choice"
+                    type="button"
+                    value={item}
+                    onClick={onChangeValue}
+                  >
+                    {he.decode(item)}
+                  </button>
             </div>
           ))}
       </div>
