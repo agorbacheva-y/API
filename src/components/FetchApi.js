@@ -49,7 +49,7 @@ const FetchApi = () => {
   },[triviaQues])
 
   //console.log(trivia)
-  console.log(triviaQues);
+  //console.log(triviaQues);
 
   //console.log(Array.isArray(trivia));
 

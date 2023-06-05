@@ -2,32 +2,18 @@ import { useState, useEffect } from "react";
 import he from "he";
 import QuizButton from "./QuizButton";
 
-const Questions = ({ triviaQues, index, setIndex, choices, currentChoice, setCurrentChoice, setChecked, checked, correct }) => {
-  // state to store current question
-  const [ currentQuestion, setCurrentQuestion ] = useState("");
-
-  useEffect(() => {
-    setCurrentQuestion(triviaQues.map(({question}) => he.decode(question)));
-  },[triviaQues]);
-  console.log(currentQuestion);
-
+const Questions = ({ triviaQues, index, setIndex, setChecked, checked }) => {
   return (
     <div>
       <QuizButton 
         triviaQues={triviaQues} 
-        currentQuestion={currentQuestion} 
-        setCurrentQuestion={setCurrentQuestion}
         index={index} 
         setIndex={setIndex} 
-        choices={choices} 
-        currentChoice={currentChoice}
-        setCurrentChoice={setCurrentChoice}
         setChecked={setChecked}
         checked={checked}
-        correct={correct}
         />
 
-      <p>{currentQuestion.question}</p>
+      <p>{triviaQues[index].question}</p>
     </div>
   );
 };

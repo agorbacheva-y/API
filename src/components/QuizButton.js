@@ -2,21 +2,16 @@ import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Points from "./Points";
 
-const QuizButton = ({ triviaQues, setCurrentQuestion, index, setIndex, choices, setCurrentChoice, setChecked, checked, correct }) => {
+const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
   // state for points
   const [ points, setPoints ] = useState(0);
 
   // state for overlay with final points
   const [ show, setShow ] = useState(false);
-  
-  useEffect(() => {
-    setCurrentQuestion(triviaQues[index]);
-    setCurrentChoice(choices[index]);
-  },[triviaQues, choices, index])
 
   // function to check correct answer
   const checkAnswer = () => {
-    if (checked === correct[index]) {
+    if (checked === triviaQues[index].correct_answer) {
       setPoints((prev) => prev + 1);
     }
   };
@@ -40,7 +35,7 @@ const QuizButton = ({ triviaQues, setCurrentQuestion, index, setIndex, choices, 
   //   }
   // };
 
-  //console.log(points);
+  console.log(points);
 
   const resetValue = () => {
     setChecked(null);
