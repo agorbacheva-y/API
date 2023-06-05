@@ -61,27 +61,33 @@ const FetchApi = () => {
   const handleClick = (e) => {
     e.preventDefault();
     setIsShown(true);
+    e.target.style.display = "none";
   };
 
   return (
     <div className="container">
       <h1 className="title">Trivia Quiz</h1>
-      <Button
-        variant="info"
-        className="m-3"
-        onClick={handleClick}
-      >
-        {loading ? <p>Loading...</p> : <p>Start</p>}
-      </Button>
-
-      <QuizButton 
-        triviaQues={triviaQues} 
-        index={index} 
-        setIndex={setIndex} 
-        setChecked={setChecked}
-        checked={checked}
-      />
-
+      
+      <div className="start-container">
+        <button
+          className="start-btn"
+          onClick={handleClick}
+        >
+          {loading ? <p>Loading...</p> : <p>Start</p>}
+        </button>
+      </div>
+     
+   
+      {isShown && (
+        <QuizButton 
+          triviaQues={triviaQues} 
+          index={index} 
+          setIndex={setIndex} 
+          setChecked={setChecked}
+          checked={checked}
+        />
+      )}
+      
       {isShown && (
         <div className="card-container">
           <Questions 

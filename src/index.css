@@ -19,10 +19,11 @@
 
 .container {
   display: flex;
+  min-height: 100vh;
+  max-width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
 }
 
 .btn-container {
@@ -30,6 +31,21 @@
   align-items: baseline;
   justify-content: center;
   gap: 2rem;
+}
+
+.start-container {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+.start-btn {
+  background-color: #D92B04;
+  font-size: 3rem;
+  color: white;
+  border-radius: 2rem;
+  border: none;
+  padding: 0 1rem;
 }
 
 .next-btn {
@@ -45,7 +61,6 @@
   display: flex;
   margin: 1rem ;
   text-align: center;
-
   background-color: rgb(88, 85, 85);
   border-radius: 1rem;
   padding: 1rem;
