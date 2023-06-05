@@ -70,15 +70,15 @@ const FetchApi = () => {
       </Button>
 
       {isShown && (
-        <Card body>
-          <div className="card-container">
-            <MultipleChoice 
-              triviaQues={triviaQues} 
-              index={index} 
-              setIndex={setIndex}
-            />
-          </div>
-        </Card>
+          <Card.Body>
+            <div className="card-container">
+              <MultipleChoice 
+                triviaQues={triviaQues} 
+                index={index} 
+                setIndex={setIndex}
+              />
+            </div>
+          </Card.Body>
       )}      
     </div>
   );

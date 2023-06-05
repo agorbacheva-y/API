@@ -23,7 +23,7 @@ const MultipleChoice = ({ triviaQues, index, setIndex }) => {
       <div>
           {triviaQues[index].choices?.map((item, index) => 
             (
-              <div key={index} >
+              <div key={index} className="multi-choice-container">
 
                   <button 
                     className="multi-choice"
