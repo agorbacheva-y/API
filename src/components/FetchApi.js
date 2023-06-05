@@ -24,9 +24,6 @@ const FetchApi = () => {
   // state for selected radio option
   const [ checked, setChecked ] = useState("");
 
-  // array of letters for multiple choice
-  const letters = ["A", "B", "C", "D"];
-
   useEffect(() => {
     const fetchTrivia = async () => {
       setLoading(true);
@@ -54,14 +51,11 @@ const FetchApi = () => {
       object.choices = object.incorrect_answers);
     triviaQues.forEach((object) => 
       object.choices.push(object.correct_answer));
-    triviaQues.forEach((object) => 
-      object.letter = letters);
   },[triviaQues])
 
   //console.log(trivia)
   //console.log(triviaQues);
   //console.log(Array.isArray(trivia));
-  console.log(triviaQues)
 
   // function to show card with question
   const handleClick = (e) => {

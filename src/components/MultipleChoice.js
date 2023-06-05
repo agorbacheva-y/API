@@ -1,6 +1,8 @@
 import he from "he";
 
 const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
+  // array of letters for multiple choice
+  const letters = ["A", "B", "C", "D"];
 
   const onChangeValue = (e) => {
     setChecked(e.target.value);
@@ -18,7 +20,7 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
               value={item}
               onClick={onChangeValue}
             >
-              {he.decode(item)}
+              <p>{letters[index]}. {he.decode(item)}</p>
             </button>
         </div>
       ))}
