@@ -32,6 +32,15 @@
   gap: 2rem;
 }
 
+.next-btn {
+  background-color: #037F8C;
+  color: white;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  border: none;
+}
+
 .card-container {
   display: flex;
   margin: 1rem ;

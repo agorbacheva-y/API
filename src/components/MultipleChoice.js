@@ -14,17 +14,20 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
     <div>
       {triviaQues[index].choices?.map((item, index) => 
         (
-          <div key={index} className="multi-choice">
-            <label>
-              <input 
-                type="radio"
-                name={item}
-                value={item}
-                onChange={onChangeValue}
-                checked={checked === item}
-              />
-              <p >{letters[index]}. {he.decode(item)}</p>
-            </label>
+          <div key={index}>
+            <button 
+              type="button"
+              className="multi-choice"
+              name={item}
+              value={item}
+              onClick={onChangeValue}
+              checked={checked === item}
+              style={{
+                backgroundColor: checked === item ? "#F25C05" : "rgb(88, 85, 85)"
+              }}
+            >
+              {letters[index]}. {he.decode(item)}
+            </button>
         </div>
       ))}
     </div>

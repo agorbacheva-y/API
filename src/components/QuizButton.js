@@ -52,12 +52,13 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
 
         <p>{index + 1} of {triviaQues.length}</p>
 
-        <Button
+        <button
+          className="next-btn"
           onClick={() => (showNext(), resetValue())}
           disabled={!checked}
         >
           Next
-        </Button>
+        </button>
       </div>
 
       <div>
