@@ -65,7 +65,7 @@ const FetchApi = () => {
 
   return (
     <div className="container">
-      <h1>Trivia Quiz</h1>
+      <h1 className="title">Trivia Quiz</h1>
       <Button
         variant="info"
         className="m-3"
