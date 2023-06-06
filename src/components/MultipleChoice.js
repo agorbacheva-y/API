@@ -4,8 +4,9 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
   // array of letters for multiple choice
   const letters = ["A", "B", "C", "D"];
 
-  const onChangeValue = (e) => {
+  const handleClick = (e) => {
     setChecked(e.target.value);
+    
   };
   console.log(checked);
 
@@ -19,11 +20,9 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
               className="multi-choice"
               name={item}
               value={item}
-              onClick={onChangeValue}
-              checked={checked === item}
+              onClick={handleClick}
             >
-              <span className="multi-choice_letters">{letters[index]}.</span>
-              <span>{he.decode(item)}</span>
+              {letters[index]}.&nbsp;&nbsp;{he.decode(item)}
             </button>
         </div>
       ))}

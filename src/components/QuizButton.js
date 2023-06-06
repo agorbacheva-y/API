@@ -8,9 +8,11 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
   // state for overlay with final points
   const [ show, setShow ] = useState(false);
 
+  const correct = triviaQues[index].correct_answer;
+
   // function to check correct answer
   const checkAnswer = () => {
-    if (checked === triviaQues[index].correct_answer) {
+    if (checked === correct) {
       setPoints((prev) => prev + 1);
     }
   };
@@ -19,7 +21,7 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
   function showNext() {
     checkAnswer();
     setIndex(prev => prev + 1);
-    resetValue();
+    setChecked(null);
 
     if (index === triviaQues.length - 1) {
       setShow(true);
@@ -27,28 +29,25 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
     }
   };
 
-  // function showPrev() {
-  //   if (index === 0) {
-  //     setIndex(questions.length - 1);
-  //   } else {
-  //     setIndex(prev => prev - 1);
+  // function showCorrect(e) {
+  //   if (correct) {
+  //     e.target.style.backgroundColor = "yellow";
   //   }
+  //   resetValue();
   // };
 
   console.log(points);
 
-  const resetValue = () => {
-    setChecked(null);
-  };
+  
   
   return (
     <div>
       <div className="btn-container">
-        {/* <Button
-          onClick={() => (showPrev(), resetValue())}
+        {/* <button
+          onClick={showCorrect}
         >
-          Previous
-        </Button> */}
+          Check
+        </button> */}
 
         <p>{index + 1} of {triviaQues.length}</p>
 

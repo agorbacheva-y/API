@@ -20,8 +20,8 @@ const FetchApi = () => {
   // state for index of choices shown
   const [ index, setIndex ] = useState(0);
 
-  // state for selected radio option
-  const [ checked, setChecked ] = useState("");
+  // state for selected answer
+  const [ checked, setChecked ] = useState(null);
 
   useEffect(() => {
     const fetchTrivia = async () => {

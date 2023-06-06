@@ -64,6 +64,7 @@
   background-color: rgb(88, 85, 85);
   border-radius: 1rem;
   padding: 1rem;
+  width: 20rem;
 }
 
 .multi-choice-container {
@@ -76,19 +77,16 @@
   background-color: rgb(88, 85, 85);
   color: white;
   border-radius: 2rem;
-  width: 85vw;
+  width: 20rem;
   min-height: 3rem;
   border: none;
   margin: 0.5rem;
   padding: 0.5rem 2rem;
+  text-align: left;
 }
 
 .multi-choice:focus {
   background-color: #F25C05;
-}
-
-.multi-choice_letters {
-  float: left;
 }
 
 .overlay {
