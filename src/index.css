@@ -77,9 +77,18 @@
   color: white;
   border-radius: 2rem;
   width: 85vw;
-  height: 3rem;
+  min-height: 3rem;
   border: none;
   margin: 0.5rem;
+  padding: 0.5rem 2rem;
+}
+
+.multi-choice:focus {
+  background-color: #F25C05;
+}
+
+.multi-choice_letters {
+  float: left;
 }
 
 .overlay {

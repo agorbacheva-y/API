@@ -6,7 +6,6 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
 
   const onChangeValue = (e) => {
     setChecked(e.target.value);
-    console.log(e.target.value)
   };
   console.log(checked);
 
@@ -22,11 +21,9 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
               value={item}
               onClick={onChangeValue}
               checked={checked === item}
-              style={{
-                backgroundColor: checked === item ? "#F25C05" : "rgb(88, 85, 85)"
-              }}
             >
-              {letters[index]}. {he.decode(item)}
+              <span className="multi-choice_letters">{letters[index]}.</span>
+              <span>{he.decode(item)}</span>
             </button>
         </div>
       ))}
