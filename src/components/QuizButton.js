@@ -9,6 +9,7 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
   const [ show, setShow ] = useState(false);
 
   const correct = triviaQues[index].correct_answer;
+  console.log(correct);
 
   // function to check correct answer
   const checkAnswer = () => {

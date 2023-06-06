@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import he from "he";
+import Shuffle from "./Shuffle";
 
 const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
   // array of letters for multiple choice
@@ -9,6 +11,11 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
     
   };
   console.log(checked);
+
+  useEffect(() => {
+    Shuffle(triviaQues.choices);
+  },[]);
+
 
   return (
     <div>
@@ -31,3 +38,5 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
 };
 
 export default MultipleChoice;
+
+// put choices in array then shuffle
