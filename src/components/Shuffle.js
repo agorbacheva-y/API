@@ -1,16 +1,16 @@
-const Shuffle = (array) => {
-  let currentIndex = array.length, randomIndex;
+// const Shuffle = (triviaQues) => {
+//   let currentIndex = triviaQues.choices.length, randomIndex;
 
-  while (currentIndex !=0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
+//   while (currentIndex !=0) {
+//     randomIndex = Math.floor(Math.random() * currentIndex);
+//     currentIndex--;
 
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]
-    ];
-  };
+//     [triviaQues[currentIndex], triviaQues[randomIndex]] = [
+//       triviaQues[randomIndex], triviaQues[currentIndex]
+//     ];
+//   };
 
-  return array;
-};
+//   return triviaQues;
+// };
 
-export default Shuffle;
+// export default Shuffle;
