@@ -6,12 +6,10 @@ import Score from "./components/Score";
 function App() {
   return (
     <BrowserRouter>
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/score" exact element={<Score />} />
       </Routes>
-    
     </BrowserRouter>
   );
 }

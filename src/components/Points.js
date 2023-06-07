@@ -16,4 +16,5 @@ const Points = ({ points, setShow, triviaQues }) => {
     </div>
   );
 };
+
 export default Points;
