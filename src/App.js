@@ -1,11 +1,18 @@
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import FetchApi from './components/FetchApi';
+import Home from './components/Home';
+import Score from "./components/Score";
 
 function App() {
   return (
-    <div>
-      <FetchApi />
-    </div>
+    <BrowserRouter>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/score" exact element={<Score />} />
+      </Routes>
+    
+    </BrowserRouter>
   );
 }
 

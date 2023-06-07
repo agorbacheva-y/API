@@ -12,7 +12,7 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
   const letters = ["A", "B", "C", "D"];
 
   useEffect(() => {
-    setCurrentChoices(triviaQues[index].choices);
+    setCurrentChoices(triviaQues[index]?.choices);
   },[triviaQues, index]);
 
   useEffect(() => {
@@ -22,8 +22,9 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
       .map(({ value }) => value)
       )
   },[currentChoices]);
-  //console.log(currentChoices);
-  //console.log(shuffledChoices);
+
+  console.log(currentChoices);
+  console.log(shuffledChoices);
 
   const handleClick = (e) => {
     setChecked(e.target.value);

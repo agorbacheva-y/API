@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Points from "./Points";
 
 const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
@@ -10,6 +11,8 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
 
   const correct = triviaQues[index].correct_answer;
   console.log(correct);
+
+  const navigate = useNavigate();
 
   // function to check correct answer
   const checkAnswer = () => {
@@ -26,6 +29,7 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
 
     if (index === triviaQues.length - 1) {
       setShow(true);
+      //navigate("/score", {state: points});
       setIndex(0);
     }
   };
@@ -39,8 +43,6 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
 
   console.log(points);
 
-  
-  
   return (
     <div>
       <div className="btn-container">

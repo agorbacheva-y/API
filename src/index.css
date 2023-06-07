@@ -102,6 +102,7 @@
 .content {
   margin: 10% auto;
   background-color: white;
+  color: black;
   border-radius: 0.25rem;
   max-width: 50%;
   min-height: 40%;
