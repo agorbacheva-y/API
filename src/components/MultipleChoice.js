@@ -15,16 +15,22 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
     setCurrentChoices(triviaQues[index]?.choices);
   },[triviaQues, index]);
 
-  useEffect(() => {
+  function setChoices(currentChoices) {
     setShuffledChoices(currentChoices
       .map(value => ({ value, sort: Math.random() }))
       .sort(( a, b ) => a.sort - b.sort)
       .map(({ value }) => value)
       )
+  };
+
+  useEffect(() => {
+    if (currentChoices) {
+      setChoices(currentChoices)
+    }
   },[currentChoices]);
 
   //console.log(currentChoices);
-  console.log(shuffledChoices);
+  //console.log(shuffledChoices);
 
   const handleClick = (e) => {
     setChecked(e.target.value);

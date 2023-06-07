@@ -1,23 +1,28 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 
 const Score = () => {
   const navigate = useNavigate();
-  const location = useLocation();
 
-  let points = location.state.points;
-  //let triviaQues = location.state.triviaQues;
+  const finalPoints = localStorage.getItem("points");
+  console.log(finalPoints);
 
-  console.log(points);
-  
+  function clearPoints(e) {
+    e.preventDefault();
+    //localStorage.removeItem("points");
+    localStorage.clear();
+    navigate("/"); 
+  };
+
   return (
     <div>
       <h1>Your score</h1> 
-        {points}
+        {finalPoints}
         {/* <p>{points} out of {triviaQues}</p> */}
         <Button
           variant="primary"
-          onClick={() => {navigate("/")}}
+          onClick={clearPoints}
         >
         Close
         </Button> 
