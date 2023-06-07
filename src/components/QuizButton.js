@@ -18,7 +18,6 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
   const checkAnswer = () => {
     if (checked === correct) {
       setPoints((prev) => prev + 1);
-      localStorage.setItem("points", points);
     }
   };
 
@@ -29,8 +28,9 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
     setChecked(null);
 
     if (index === triviaQues.length - 1) {
-      setShow(true);
-     
+      //setShow(true);
+      navigate("/score");
+      localStorage.setItem("points", points);
       setIndex(0);
     }
   };
