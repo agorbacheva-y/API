@@ -2,9 +2,6 @@ import { useState, useEffect } from "react";
 import he from "he";
 
 const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
-  // state for storing choices
-  const [ multiChoices, setMultiChoices ] = useState([]);
-
   // state for current choices
   const [ currentChoices, setCurrentChoices ] = useState([]);
 
@@ -15,12 +12,8 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
   const letters = ["A", "B", "C", "D"];
 
   useEffect(() => {
-    setMultiChoices(triviaQues.map(({choices}) => choices));
-  },[triviaQues]);
-
-  useEffect(() => {
-    setCurrentChoices(multiChoices[index]);
-  },[multiChoices, index]);
+    setCurrentChoices(triviaQues[index].choices);
+  },[triviaQues, index]);
 
   useEffect(() => {
     setShuffledChoices(currentChoices
@@ -29,7 +22,6 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
       .map(({ value }) => value)
       )
   },[currentChoices]);
-
   //console.log(currentChoices);
   //console.log(shuffledChoices);
 
