@@ -5,13 +5,15 @@ const Score = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  //let points = location.state.points;
+  let points = location.state.points;
   //let triviaQues = location.state.triviaQues;
 
-  //console.log(points);
+  console.log(points);
+  
   return (
     <div>
       <h1>Your score</h1> 
+        {points}
         {/* <p>{points} out of {triviaQues}</p> */}
         <Button
           variant="primary"

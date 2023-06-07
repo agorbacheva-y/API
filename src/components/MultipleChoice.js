@@ -23,7 +23,7 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
       )
   },[currentChoices]);
 
-  console.log(currentChoices);
+  //console.log(currentChoices);
   console.log(shuffledChoices);
 
   const handleClick = (e) => {

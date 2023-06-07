@@ -29,7 +29,7 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
 
     if (index === triviaQues.length - 1) {
       setShow(true);
-      //navigate("/score", {state: points});
+      navigate("/score", {state: points});
       setIndex(0);
     }
   };
