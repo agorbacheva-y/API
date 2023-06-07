@@ -85,10 +85,6 @@
   text-align: left;
 }
 
-/* .multi-choice:focus {
-  background-color: #F25C05;
-} */
-
 .overlay {
   position: fixed;
   display: block;

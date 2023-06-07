@@ -27,7 +27,7 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
               className="multi-choice"
               name={item}
               value={item}
-              style={{ backgroundColor: checked === item ? "red" : null }}
+              style={{ backgroundColor: checked === item ? "#F25C05" : null }}
               onClick={handleClick}
             >
               {letters[index]}.&nbsp;&nbsp;{he.decode(item)}
