@@ -110,3 +110,8 @@
   position: relative;
   text-align: center;
 }
+
+.star-img {
+  width: 5rem;
+  margin: 0.5rem;
+}
