@@ -4,7 +4,7 @@ import MultipleChoice from "./MultipleChoice";
 import Questions from "./Questions";
 import QuizButton from "./QuizButton";
 
-const FetchApi = () => {
+const MedTrivia = () => {
   // state to store api data
   const [ trivia, setTrivia ] = useState([]);
 
@@ -65,7 +65,7 @@ const FetchApi = () => {
 
   return (
     <div className="container">
-      <h1 className="title">Trivia Quiz</h1>
+      
       
       <div className="start-container">
         <button
@@ -114,4 +114,4 @@ const FetchApi = () => {
   );
 };
 
-export default FetchApi;
+export default MedTrivia;

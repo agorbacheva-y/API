@@ -1,6 +1,8 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home';
+import EasyTrivia from "./components/EasyTrivia";
+import MedTrivia from "./components/MedTrivia";
 import Score from "./components/Score";
 
 function App() {
@@ -8,6 +10,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/easytrivia" exact element={<EasyTrivia /> } />
+        <Route path="/medtrivia" exact element={<MedTrivia />} />
         <Route path="/score" exact element={<Score />} />
       </Routes>
     </BrowserRouter>
