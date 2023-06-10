@@ -115,3 +115,21 @@
   width: 5rem;
   margin: 0.5rem;
 }
+
+.points  {
+  color: #037F8C;
+  font-weight: 600;
+}
+
+.quiz-btn {
+  background-color: #037F8C;
+  color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  font-size: 1.25rem;
+}
+  
+.quiz-btn-container {
+  margin-top: 5rem;
+}

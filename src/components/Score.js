@@ -21,15 +21,19 @@ const Score = () => {
         <img src={star} alt="star" className="star-img" />
       </div>
       
-      <h1>Your score</h1> 
-        <p>{finalPoints} out of {triviaQues.length}</p>
-        <Button
+      <h1 className="title">Your score</h1> 
+      <h2><span className="points">{finalPoints}</span> out of {triviaQues.length}</h2>
+      
+      <div className="quiz-btn-container">
+        <button
           type="button"
-          variant="primary"
+          className="quiz-btn"
           onClick={() => navigate("/")}
         >
-        Close
-        </Button> 
+          Take New Quiz
+        </button> 
+      </div>
+      
     </div>
   );
 };
