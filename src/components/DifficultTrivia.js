@@ -67,9 +67,9 @@ const DifficultTrivia = () => {
     <div className="container"> 
       <h1 className="title">Trivia Quiz</h1>
       <h2>Level: Difficult</h2>
-      <div className="start-container">
+      <div className="play-container">
         <button
-          className="start-btn"
+          className="play-btn"
           onClick={handleClick}
         >
           {loading ? <p>Loading...</p> : <p>Play</p>}

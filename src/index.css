@@ -40,13 +40,13 @@
   
 }
 
-.start-container {
+.play-container {
   display: flex;
   align-items: center;
   padding: 2rem;
 }
 
-.start-btn {
+.play-btn {
   background-color: #FF1A3D;
   font-size: 2.5rem;
   color: white;
