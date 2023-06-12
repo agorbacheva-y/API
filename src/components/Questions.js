@@ -2,8 +2,8 @@ import he from "he";
 
 const Questions = ({ triviaQues, index }) => {
   return (
-    <div>
-      <p>{he.decode(triviaQues[index].question)}</p>
+    <div className="card-container">
+      <p className="question">{he.decode(triviaQues[index].question)}</p>
     </div>
   );
 };

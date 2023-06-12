@@ -1,5 +1,4 @@
 import { useState, useEffect} from "react";
-import Card from "react-bootstrap/Card";
 import MultipleChoice from "./MultipleChoice";
 import Questions from "./Questions";
 import QuizButton from "./QuizButton";
@@ -65,8 +64,11 @@ const EasyTrivia = () => {
 
   return (
     <div className="container">
-      <h1 className="title">Trivia Quiz</h1>
-      <h2>Level: Easy</h2>
+      <div className="quiz-container">
+        <h1 className="title">Trivia Quiz</h1>
+        <h2>Level: Easy</h2>
+      </div>
+     
       <div className="play-container">
         <button
           className="play-btn"
@@ -75,7 +77,6 @@ const EasyTrivia = () => {
           {loading ? <p>Loading...</p> : <p>Play</p>}
         </button>
       </div>
-     
    
       {isShown && (
         <QuizButton 
@@ -88,27 +89,21 @@ const EasyTrivia = () => {
       )}
       
       {isShown && (
-        <div className="card-container">
-          <Questions 
-            triviaQues={triviaQues} 
-            index={index} 
-            setIndex={setIndex}
-          />
-        </div>
+        <Questions 
+          triviaQues={triviaQues} 
+          index={index} 
+          setIndex={setIndex}
+        />
       )}
 
       {isShown && (
-        <Card.Body>
-          <div className="multi-choice-container">
-            <MultipleChoice 
-              triviaQues={triviaQues} 
-              index={index} 
-              setIndex={setIndex}
-              checked={checked}
-              setChecked={setChecked}
-            />
-          </div>
-        </Card.Body>
+        <MultipleChoice 
+          triviaQues={triviaQues} 
+          index={index} 
+          setIndex={setIndex}
+          checked={checked}
+          setChecked={setChecked}
+        />
       )}      
     </div>
   );

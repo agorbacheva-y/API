@@ -14,7 +14,8 @@
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 .container {
@@ -37,7 +38,6 @@
   align-items: baseline;
   justify-content: center;
   gap: 2rem;
-  
 }
 
 .play-container {
@@ -55,6 +55,11 @@
   width: 13rem;
 }
 
+.quiz-container {
+  margin: 2rem;
+  text-align: center;
+}
+
 .next-btn {
   background-color: #00C6CB;
   color: white;
@@ -66,16 +71,22 @@
 
 .card-container {
   display: flex;
-  margin: 1rem ;
+  margin: 1rem;
   text-align: center;
   background-color: rgb(88, 85, 85);
   border-radius: 1rem;
-  padding: 1rem;
-  width: 20rem;
+  max-width: 80%;
+  min-height: 30vh;
+}
+
+.question {
+  margin: auto;
+  font-size: 1.5rem;
 }
 
 .multi-choice-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 } 
@@ -90,6 +101,7 @@
   margin: 0.5rem;
   padding: 0.5rem 2rem;
   text-align: left;
+  font-size: 1.5rem;
 }
 
 .overlay {

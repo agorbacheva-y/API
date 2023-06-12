@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import he from "he";
+import Card from "react-bootstrap/Card";
+
 
 const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
   // state for current choices
@@ -38,23 +40,25 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
   console.log(checked);
 
   return (
-    <div>
-      {shuffledChoices.map((item, index) => 
-        (
-          <div key={index}>
-            <button 
-              type="button"
-              className="multi-choice"
-              name={item}
-              value={item}
-              style={{ backgroundColor: checked === item ? "#F25C05" : null }}
-              onClick={handleClick}
-            >
-              {letters[index]}.&nbsp;&nbsp;{he.decode(item)}
-            </button>
-        </div>
-      ))}
-    </div>
+    <Card.Body>
+      <div className="multi-choice-container">
+        {shuffledChoices.map((item, index) => 
+          (
+            <div key={index}>
+              <button 
+                type="button"
+                className="multi-choice"
+                name={item}
+                value={item}
+                style={{ backgroundColor: checked === item ? "#F25C05" : null }}
+                onClick={handleClick}
+              >
+                {letters[index]}.&nbsp;&nbsp;{he.decode(item)}
+              </button>
+          </div>
+        ))}
+      </div>
+    </Card.Body>
   );
 };
 

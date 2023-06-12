@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import quiz from "../images/quiz.png";
 import LevelButton from "./LevelButton";
 
