@@ -1,17 +1,24 @@
-import { Link } from "react-router-dom";
-import EasyTrivia from "./EasyTrivia"
-import MedTrivia from "./MedTrivia";
-import DifficultTrivia from "./DifficultTrivia";
+import { Link, useNavigate } from "react-router-dom";
+import quiz from "../images/quiz.png";
+import LevelButton from "./LevelButton";
 
 const Home = () => {
+  let navigate = useNavigate();
+
   return (
     <div className="container">
+      <img src={quiz} alt="quiz logo" className="quiz-img" />
       <h1 className="title">Trivia Quiz</h1>
-      <Link to="/easytrivia">Easy</Link>
-      <Link to="/medtrivia">Medium</Link>
-      <Link to="/difficulttrivia">Difficult</Link>
+      <div className="level-container">
+        <LevelButton onClick={() => navigate("/easytrivia")}>Easy</LevelButton>
+        <LevelButton onClick={() => navigate("/medtrivia")}>Medium</LevelButton>
+        <LevelButton onClick={() => navigate("/difficulttrivia")}>Difficult</LevelButton>
+      </div>
     </div>
   );
 };
 
 export default Home;
+
+// attribute for logo
+// <a href="https://www.flaticon.com/free-icons/quiz" title="quiz icons">Quiz icons created by Freepik - Flaticon</a>

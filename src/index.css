@@ -41,7 +41,7 @@
 }
 
 .start-btn {
-  background-color: #D92B04;
+  background-color: #FF1A3D;
   font-size: 3rem;
   color: white;
   border-radius: 2rem;
@@ -50,7 +50,7 @@
 }
 
 .next-btn {
-  background-color: #037F8C;
+  background-color: #00C6CB;
   color: white;
   width: 5rem;
   height: 2rem;
@@ -123,7 +123,7 @@
 }
 
 .quiz-btn {
-  background-color: #037F8C;
+  background-color: #00C6CB;
   color: white;
   padding: 1rem;
   border-radius: 1rem;
@@ -133,4 +133,16 @@
   
 .quiz-btn-container {
   margin-top: 5rem;
+}
+
+.quiz-img {
+  width: 50%;
+  margin: 1rem;
+}
+
+.level-container {
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  justify-content: space-evenly;
 }
