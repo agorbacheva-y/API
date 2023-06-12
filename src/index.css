@@ -48,11 +48,11 @@
 
 .start-btn {
   background-color: #FF1A3D;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: white;
   border-radius: 2rem;
   border: none;
-  padding: 0 1rem;
+  width: 13rem;
 }
 
 .next-btn {

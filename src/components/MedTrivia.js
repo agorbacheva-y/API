@@ -73,7 +73,7 @@ const MedTrivia = () => {
           className="start-btn"
           onClick={handleClick}
         >
-          {loading ? <p>Loading...</p> : <p>Start</p>}
+          {loading ? <p>Loading...</p> : <p>Play</p>}
         </button>
       </div>
      
