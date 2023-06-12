@@ -26,6 +26,12 @@
   align-items: center;
 }
 
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .btn-container {
   display: flex;
   align-items: baseline;
@@ -137,12 +143,22 @@
 
 .quiz-img {
   width: 50%;
-  margin: 1rem;
+  margin: 2rem;
 }
 
 .level-container {
   display: flex;
   flex-direction: column;
-  height: 30vh;
+  height: 40vh;
   justify-content: space-evenly;
+}
+
+.level-btn {
+  background-color: #09617D;
+  color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  font-size: 1.25rem;
+  width: 10rem;
 }

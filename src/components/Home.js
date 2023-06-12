@@ -7,8 +7,11 @@ const Home = () => {
 
   return (
     <div className="container">
-      <img src={quiz} alt="quiz logo" className="quiz-img" />
-      <h1 className="title">Trivia Quiz</h1>
+      <div className="logo-container">
+        <img src={quiz} alt="quiz logo" className="quiz-img" />
+        <h1 className="title">Trivia Quiz</h1>
+      </div>
+      
       <div className="level-container">
         <LevelButton onClick={() => navigate("/easytrivia")}>Easy</LevelButton>
         <LevelButton onClick={() => navigate("/medtrivia")}>Medium</LevelButton>

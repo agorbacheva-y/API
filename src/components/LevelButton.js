@@ -3,7 +3,7 @@ const LevelButton = ({ children, onClick }) => {
     <div>
       <button
         type="button"
-        className="quiz-btn"
+        className="level-btn"
         onClick={onClick}
       >
         {children}
