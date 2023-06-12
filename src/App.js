@@ -4,6 +4,7 @@ import Home from './components/Home';
 import EasyTrivia from "./components/EasyTrivia";
 import MedTrivia from "./components/MedTrivia";
 import Score from "./components/Score";
+import DifficultTrivia from "./components/DifficultTrivia";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/easytrivia" exact element={<EasyTrivia /> } />
         <Route path="/medtrivia" exact element={<MedTrivia />} />
+        <Route path="/difficulttrivia" exact element={<DifficultTrivia />} />
         <Route path="/score" exact element={<Score />} />
       </Routes>
     </BrowserRouter>

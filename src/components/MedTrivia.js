@@ -65,7 +65,8 @@ const MedTrivia = () => {
 
   return (
     <div className="container">
-      
+      <h1 className="title">Trivia Quiz</h1>
+      <h2>Level: Medium</h2>
       
       <div className="start-container">
         <button

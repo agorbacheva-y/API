@@ -4,7 +4,7 @@ import MultipleChoice from "./MultipleChoice";
 import Questions from "./Questions";
 import QuizButton from "./QuizButton";
 
-const EasyTrivia = () => {
+const DifficultTrivia = () => {
   // state to store api data
   const [ trivia, setTrivia ] = useState([]);
 
@@ -27,7 +27,7 @@ const EasyTrivia = () => {
     const fetchTrivia = async () => {
       setLoading(true);
       try {
-        const response = await fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple");
+        const response = await fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=hard&type=multiple");
         const data = await response.json();
         setTrivia(data.results);
       } catch (error) {
@@ -64,9 +64,9 @@ const EasyTrivia = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container"> 
       <h1 className="title">Trivia Quiz</h1>
-      <h2>Level: Easy</h2>
+      <h2>Level: Difficult</h2>
       <div className="start-container">
         <button
           className="start-btn"
@@ -114,4 +114,4 @@ const EasyTrivia = () => {
   );
 };
 
-export default EasyTrivia;
+export default DifficultTrivia;
