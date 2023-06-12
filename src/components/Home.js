@@ -6,7 +6,7 @@ const Home = () => {
   let navigate = useNavigate();
 
   return (
-    <div className="container">
+    <div className="home-container">
       <div className="logo-container">
         <img src={quiz} alt="quiz logo" className="quiz-img" />
         <h1 className="title">Trivia Quiz</h1>
