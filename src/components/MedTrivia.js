@@ -22,6 +22,9 @@ const MedTrivia = () => {
   // state for selected answer
   const [ checked, setChecked ] = useState(null);
 
+  // state for showing play btn
+  const [ showPlay, setShowPlay ] = useState(true);
+
   useEffect(() => {
     const fetchTrivia = async () => {
       setLoading(true);
@@ -59,17 +62,20 @@ const MedTrivia = () => {
   const handleClick = (e) => {
     e.preventDefault();
     setIsShown(true);
-    e.target.style.display = "none";
+    setShowPlay(false);  
   };
 
   return (
-    <div className="container">
+    <div className="container trivia">
       <div className="quiz-container">
         <h1 className="title">Trivia Quiz</h1>
         <h2>Level: Medium</h2>
       </div>
       
-      <div className="play-container">
+      <div 
+        className="play-container"
+        style={showPlay ? {display: "flex"} : {display : "none"}}
+      >
         <button
           className="play-btn"
           onClick={handleClick}

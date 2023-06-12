@@ -11,6 +11,8 @@
   font-family: 'Montserrat', sans-serif;
   background-color: rgb(50, 50, 50);
   color: white;
+  min-height: 100vh;
+  max-width: 100%;
 }
 
 .title {
@@ -27,13 +29,14 @@
   align-items: center;
 }
 
-.home-container {
+.home {
   background-image: url(./images/background.png);
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+}
+
+.trivia {
+  background-image: url(./images/background2.png);
+  background-size: cover;
 }
 
 .logo-container {
@@ -53,6 +56,10 @@
   display: flex;
   align-items: center;
   padding: 2rem;
+}
+
+.play-container::after {
+  display: none;
 }
 
 .play-btn {
