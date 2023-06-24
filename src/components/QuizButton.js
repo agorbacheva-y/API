@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Points from "./Points";
 
@@ -30,10 +30,13 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
     if (index === triviaQues.length - 1) {
       //setShow(true);
       navigate("/score", { state: {triviaQues} });
-      localStorage.setItem("points", points);
       setIndex(0);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("points", points);
+  },[points]);
 
   // function showCorrect(e) {
   //   if (correct) {
@@ -42,7 +45,7 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
   //   resetValue();
   // };
 
-  console.log(points);
+  console.log(`current points: ${points}`);
 
   return (
     <div>
