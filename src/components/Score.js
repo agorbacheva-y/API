@@ -12,7 +12,6 @@ const Score = () => {
 
   const triviaQues = location.state.triviaQues;
 
-
   return (
     <div className="container">
       <div>

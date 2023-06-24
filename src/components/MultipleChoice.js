@@ -11,7 +11,7 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
   const [ shuffledChoices, setShuffledChoices ] = useState([]);
  
   // array of letters for multiple choice
-  const letters = ["A", "B", "C", "D"];
+  const letters = ["A. ", "B. ", "C. ", "D. "];
 
   useEffect(() => {
     setCurrentChoices(triviaQues[index]?.choices);
@@ -53,7 +53,7 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked }) => {
                 style={{ backgroundColor: checked === item ? "#F25C05" : null }}
                 onClick={handleClick}
               >
-                {letters[index]}.&nbsp;&nbsp;{he.decode(item)}
+                {letters[index]}{he.decode(item)}
               </button>
           </div>
         ))}
