@@ -3,7 +3,7 @@ import he from "he";
 const Questions = ({ triviaQues, index }) => {
   return (
     <div className="card-container">
-      <p className="question">{he.decode(triviaQues[index].question)}</p>
+      <p className="question">{he.decode(triviaQues?.[index]?.question)}</p>
     </div>
   );
 };

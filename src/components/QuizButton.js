@@ -9,7 +9,7 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
   // state for overlay with final points
   const [ show, setShow ] = useState(false);
 
-  const correct = triviaQues[index].correct_answer;
+  const correct = triviaQues?.[index]?.correct_answer;
   console.log(correct);
 
   const navigate = useNavigate();
@@ -56,7 +56,7 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
           Check
         </button> */}
 
-        <p>{index + 1} of {triviaQues.length}</p>
+        <p>{index + 1} of {triviaQues?.length}</p>
 
         <button
           className="next-btn"
