@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Points from "./Points";
 
-const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked }) => {
+const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked, correct }) => {
   // state for points
   const [ points, setPoints ] = useState(0);
 
   // state for overlay with final points
   const [ show, setShow ] = useState(false);
 
-  const correct = triviaQues[index].correct_answer;
   console.log(correct);
 
   const navigate = useNavigate();

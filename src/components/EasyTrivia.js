@@ -65,6 +65,8 @@ const EasyTrivia = () => {
     setShowPlay(false);
   };
 
+  const correct = triviaQues[index]?.correct_answer;
+
   return (
     <div className="container trivia">
       <div className="quiz-container">
@@ -91,6 +93,7 @@ const EasyTrivia = () => {
           setIndex={setIndex} 
           setChecked={setChecked}
           checked={checked}
+          correct={correct}
         />
       )}
       
@@ -109,6 +112,7 @@ const EasyTrivia = () => {
           setIndex={setIndex}
           checked={checked}
           setChecked={setChecked}
+          correct={correct}
         />
       )}      
     </div>
