@@ -25,6 +25,9 @@ const EasyTrivia = () => {
   // state for showing play btn
   const [ showPlay, setShowPlay ] = useState(true);
 
+  // state for correct answer
+  const [ showCorrect, setShowCorrect ] = useState(false);
+
   useEffect(() => {
     const fetchTrivia = async () => {
       setLoading(true);
@@ -94,6 +97,8 @@ const EasyTrivia = () => {
           setChecked={setChecked}
           checked={checked}
           correct={correct}
+          showCorrect={showCorrect}
+          setShowCorrect={setShowCorrect}
         />
       )}
       
@@ -113,6 +118,7 @@ const EasyTrivia = () => {
           checked={checked}
           setChecked={setChecked}
           correct={correct}
+          showCorrect={showCorrect}
         />
       )}      
     </div>

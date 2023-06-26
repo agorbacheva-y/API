@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Points from "./Points";
 
-const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked, correct }) => {
+const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked, correct, showCorrect, setShowCorrect }) => {
   // state for points
   const [ points, setPoints ] = useState(0);
 
@@ -25,6 +25,7 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked, correct 
     checkAnswer();
     setIndex(prev => prev + 1);
     setChecked(null);
+    setShowCorrect(false);
 
     if (index === triviaQues.length - 1) {
       //setShow(true);
@@ -37,23 +38,20 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked, correct 
     localStorage.setItem("points", points);
   },[points]);
 
-  // function showCorrect(e) {
-  //   if (correct) {
-  //     e.target.style.backgroundColor = "yellow";
-  //   }
-  //   resetValue();
-  // };
+  function showCorrect() {
+    setShowCorrect(true);
+  };
 
   console.log(`current points: ${points}`);
 
   return (
     <div>
       <div className="btn-container">
-        {/* <button
+        <button
           onClick={showCorrect}
         >
           Check
-        </button> */}
+        </button>
 
         <p>{index + 1} of {triviaQues.length}</p>
 

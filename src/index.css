@@ -121,6 +121,10 @@
   font-size: 1.5rem;
 }
 
+.correct {
+  border: 1px solid yellow;
+}
+
 .overlay {
   position: fixed;
   display: block;

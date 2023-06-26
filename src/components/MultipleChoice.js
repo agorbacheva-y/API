@@ -2,15 +2,12 @@ import { useState, useEffect } from "react";
 import he from "he";
 import Card from "react-bootstrap/Card";
 
-const MultipleChoice = ({ triviaQues, index, checked, setChecked, correct }) => {
+const MultipleChoice = ({ triviaQues, index, checked, setChecked, correct, showCorrect }) => {
   // state for current choices
   const [ currentChoices, setCurrentChoices ] = useState([]);
 
   // state for shuffled choices
   const [ shuffledChoices, setShuffledChoices ] = useState([]);
-
-  // state for correct answer
-  const [ showCorrect, setShowCorrect ] = useState(false);
  
   // array of letters for multiple choice
   const letters = ["A. ", "B. ", "C. ", "D. "];
@@ -49,7 +46,7 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked, correct }) => 
             <div key={index}>
               <button 
                 type="button"
-                className="multi-choice"
+                className={ showCorrect && correct === item ? 'correct multi-choice' : 'multi-choice' }
                 name={item}
                 value={item}
                 style={{ backgroundColor: checked === item ? "#F25C05" : null }}
