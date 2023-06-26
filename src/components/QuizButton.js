@@ -2,14 +2,12 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Points from "./Points";
 
-const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked, correct, showCorrect, setShowCorrect }) => {
+const QuizButton = ({ triviaQues, index, setIndex, checked, setChecked, correct, setColorOfCorrect }) => {
   // state for points
   const [ points, setPoints ] = useState(0);
 
   // state for overlay with final points
   const [ show, setShow ] = useState(false);
-
-  console.log(correct);
 
   const navigate = useNavigate();
 
@@ -20,12 +18,16 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked, correct,
     }
   };
 
-  // functions for prev and next buttons
+  // functions for check and next buttons
+  function showCorrect() {
+    setColorOfCorrect(true);
+  }
+
   function showNext() {  
     checkAnswer();
     setIndex(prev => prev + 1);
     setChecked(null);
-    setShowCorrect(false);
+    setColorOfCorrect(false);
 
     if (index === triviaQues.length - 1) {
       //setShow(true);
@@ -38,16 +40,13 @@ const QuizButton = ({ triviaQues, index, setIndex, setChecked, checked, correct,
     localStorage.setItem("points", points);
   },[points]);
 
-  function showCorrect() {
-    setShowCorrect(true);
-  };
-
   console.log(`current points: ${points}`);
 
   return (
     <div>
       <div className="btn-container">
         <button
+          className="next-btn"
           onClick={showCorrect}
         >
           Check

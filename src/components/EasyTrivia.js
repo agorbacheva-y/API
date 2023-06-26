@@ -22,11 +22,14 @@ const EasyTrivia = () => {
   // state for selected answer
   const [ checked, setChecked ] = useState(null);
 
+  // state for correct answer
+  const [ correct, setCorrect ] = useState("");
+
   // state for showing play btn
   const [ showPlay, setShowPlay ] = useState(true);
 
-  // state for correct answer
-  const [ showCorrect, setShowCorrect ] = useState(false);
+  // state for changing color of correct answer
+  const [ colorOfCorrect, setColorOfCorrect ] = useState(false);
 
   useEffect(() => {
     const fetchTrivia = async () => {
@@ -55,6 +58,8 @@ const EasyTrivia = () => {
       object.choices = object.incorrect_answers);
     triviaQues.forEach((object) => 
       object.choices.push(object.correct_answer));
+    
+    setCorrect(triviaQues[index].correct_answer);
   },[triviaQues])
 
   //console.log(trivia)
@@ -67,8 +72,6 @@ const EasyTrivia = () => {
     setIsShown(true);
     setShowPlay(false);
   };
-
-  const correct = triviaQues[index]?.correct_answer;
 
   return (
     <div className="container trivia">
@@ -97,8 +100,7 @@ const EasyTrivia = () => {
           setChecked={setChecked}
           checked={checked}
           correct={correct}
-          showCorrect={showCorrect}
-          setShowCorrect={setShowCorrect}
+          setColorOfCorrect={setColorOfCorrect}
         />
       )}
       
@@ -118,7 +120,7 @@ const EasyTrivia = () => {
           checked={checked}
           setChecked={setChecked}
           correct={correct}
-          showCorrect={showCorrect}
+          colorOfCorrect={colorOfCorrect}
         />
       )}      
     </div>

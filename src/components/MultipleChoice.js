@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import he from "he";
 import Card from "react-bootstrap/Card";
 
-const MultipleChoice = ({ triviaQues, index, checked, setChecked, correct, showCorrect }) => {
+const MultipleChoice = ({ triviaQues, index, checked, setChecked, correct, colorOfCorrect }) => {
   // state for current choices
   const [ currentChoices, setCurrentChoices ] = useState([]);
 
@@ -36,6 +36,8 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked, correct, showC
   const handleClick = (e) => {
     setChecked(e.target.value);
   };
+
+  console.log(correct);
   console.log(checked);
 
   return (
@@ -46,10 +48,10 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked, correct, showC
             <div key={index}>
               <button 
                 type="button"
-                className={ showCorrect && correct === item ? 'correct multi-choice' : 'multi-choice' }
+                className={ colorOfCorrect && correct === item ? 'correct multi-choice' : 'multi-choice' }
                 name={item}
                 value={item}
-                style={{ backgroundColor: checked === item ? "#F25C05" : null }}
+                style={{ backgroundColor: checked === item ? "#00C3A1" : null }}
                 onClick={handleClick}
               >
                 {letters[index]}{he.decode(item)}

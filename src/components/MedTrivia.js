@@ -22,8 +22,14 @@ const MedTrivia = () => {
   // state for selected answer
   const [ checked, setChecked ] = useState(null);
 
+  // state for correct answer
+  const [ correct, setCorrect ] = useState("");
+
   // state for showing play btn
   const [ showPlay, setShowPlay ] = useState(true);
+
+  // state for changing color of correct answer
+  const [ colorOfCorrect, setColorOfCorrect ] = useState(false);
 
   useEffect(() => {
     const fetchTrivia = async () => {
@@ -52,6 +58,8 @@ const MedTrivia = () => {
       object.choices = object.incorrect_answers);
     triviaQues.forEach((object) => 
       object.choices.push(object.correct_answer));
+
+    setCorrect(triviaQues[index]?.correct_answer);
   },[triviaQues])
 
   //console.log(trivia)
@@ -91,6 +99,7 @@ const MedTrivia = () => {
           setIndex={setIndex} 
           setChecked={setChecked}
           checked={checked}
+          colorOfCorrect={colorOfCorrect}
         />
       )}
       
@@ -109,6 +118,7 @@ const MedTrivia = () => {
           setIndex={setIndex}
           checked={checked}
           setChecked={setChecked}
+          colorOfCorrect={colorOfCorrect}
         />
       )}      
     </div>
