@@ -59,7 +59,7 @@ const EasyTrivia = () => {
     triviaQues.forEach((object) => 
       object.choices.push(object.correct_answer));
     
-    setCorrect(triviaQues[index].correct_answer);
+    setCorrect(triviaQues[index]?.correct_answer);
   },[triviaQues])
 
   //console.log(trivia)
