@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Points from "./Points";
 
 const QuizButton = ({ triviaQues, index, setIndex, checked, setChecked, correct, setColorOfCorrect }) => {
   // state for points
   const [ points, setPoints ] = useState(0);
-
-  // state for overlay with final points
-  const [ show, setShow ] = useState(false);
 
   const navigate = useNavigate();
 
@@ -61,12 +57,6 @@ const QuizButton = ({ triviaQues, index, setIndex, checked, setChecked, correct,
         >
           Next
         </button>
-      </div>
-
-      <div>
-        {show && (
-          <Points points={points} setShow={setShow} triviaQues={triviaQues} />
-        )}
       </div>
     </div>
   );
