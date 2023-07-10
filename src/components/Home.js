@@ -1,10 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import quiz from "../images/quiz.png";
-import LevelButton from "./LevelButton";
+import SetLevel from "./SetLevel";
 
 const Home = () => {
-  let navigate = useNavigate();
-
   return (
     <div className="container home">
       <div className="logo-container">
@@ -13,9 +10,7 @@ const Home = () => {
       </div>
       
       <div className="level-container">
-        <LevelButton onClick={() => navigate("/easytrivia")}>Easy</LevelButton>
-        <LevelButton onClick={() => navigate("/medtrivia")}>Medium</LevelButton>
-        <LevelButton onClick={() => navigate("/difficulttrivia")}>Difficult</LevelButton>
+        <SetLevel />
       </div>
     </div>
   );
