@@ -48,7 +48,7 @@ const QuizButton = ({ triviaQues, index, setIndex, checked, setChecked, correct,
           Check
         </button>
 
-        <p>{index + 1} of {triviaQues.length}</p>
+        <p>{index + 1} of {triviaQues?.length}</p>
 
         <button
           className="next-btn"
