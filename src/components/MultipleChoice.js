@@ -65,8 +65,6 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked, correct, color
 
 export default MultipleChoice;
 
-// put choices in array then shuffle
-
 // fisher-yates shuffle
 // const shuffle = (multiChoice) => {
 //   for (var i = multiChoice.length - 1; i > 0; i--) {
@@ -77,4 +75,4 @@ export default MultipleChoice;
 // };
 
 
-// correct === item ? "yellow" : null
+// showCorrect works on first question in easy only...

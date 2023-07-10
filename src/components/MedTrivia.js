@@ -99,7 +99,8 @@ const MedTrivia = () => {
           setIndex={setIndex} 
           setChecked={setChecked}
           checked={checked}
-          colorOfCorrect={colorOfCorrect}
+          correct={correct}
+          setColorOfCorrect={setColorOfCorrect}
         />
       )}
       

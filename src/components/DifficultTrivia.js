@@ -99,6 +99,7 @@ const DifficultTrivia = () => {
           setIndex={setIndex} 
           setChecked={setChecked}
           checked={checked}
+          correct={correct}
           setColorOfCorrect={setColorOfCorrect}
         />
       )}
