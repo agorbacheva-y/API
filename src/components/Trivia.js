@@ -82,7 +82,7 @@ const Trivia = () => {
     <div className="container trivia">
       <div className="quiz-container">
         <h1 className="title">Trivia Quiz</h1>
-        <h2>Level: {triviaLevel}</h2>
+        <h2 className="level">Level: {triviaLevel}</h2>
       </div>
      
       <div 
