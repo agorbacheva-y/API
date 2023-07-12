@@ -16,7 +16,7 @@ const Home = () => {
 
       <footer>
         <Credit
-          image="Quiz icon"
+          image="Quiz icons"
           artistName="Freepik" 
           url="https://www.flaticon.com/free-icons/quiz"
         >
