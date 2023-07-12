@@ -5,6 +5,7 @@ import QuizButton from "./QuizButton";
 
 const Trivia = () => {
   const triviaUrl = localStorage.getItem("url");
+  const triviaLevel = localStorage.getItem("level");
 
   // state to store api data
   const [ trivia, setTrivia ] = useState([]);
@@ -79,7 +80,7 @@ const Trivia = () => {
     <div className="container trivia">
       <div className="quiz-container">
         <h1 className="title">Trivia Quiz</h1>
-        <h2>Level: Easy</h2>
+        <h2>Level: {triviaLevel}</h2>
       </div>
      
       <div 
