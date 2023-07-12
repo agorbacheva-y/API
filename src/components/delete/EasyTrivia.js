@@ -1,7 +1,7 @@
 import { useState, useEffect} from "react";
-import MultipleChoice from "./MultipleChoice";
-import Questions from "./Questions";
-import QuizButton from "./QuizButton";
+import MultipleChoice from "../MultipleChoice";
+import Questions from "../Questions";
+import QuizButton from "../QuizButton";
 
 const EasyTrivia = () => {
   // state to store api data

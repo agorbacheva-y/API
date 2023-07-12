@@ -1,9 +1,9 @@
 import { useState, useEffect} from "react";
-import MultipleChoice from "./MultipleChoice";
-import Questions from "./Questions";
-import QuizButton from "./QuizButton";
+import MultipleChoice from "../MultipleChoice";
+import Questions from "../Questions";
+import QuizButton from "../QuizButton";
 
-const MedTrivia = () => {
+const DifficultTrivia = () => {
   // state to store api data
   const [ trivia, setTrivia ] = useState([]);
 
@@ -35,7 +35,7 @@ const MedTrivia = () => {
     const fetchTrivia = async () => {
       setLoading(true);
       try {
-        const response = await fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple");
+        const response = await fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=hard&type=multiple");
         const data = await response.json();
         setTrivia(data.results);
       } catch (error) {
@@ -58,7 +58,7 @@ const MedTrivia = () => {
       object.choices = object.incorrect_answers);
     triviaQues.forEach((object) => 
       object.choices.push(object.correct_answer));
-
+    
     setCorrect(triviaQues[index]?.correct_answer);
   },[triviaQues])
 
@@ -70,14 +70,14 @@ const MedTrivia = () => {
   const handleClick = (e) => {
     e.preventDefault();
     setIsShown(true);
-    setShowPlay(false);  
+    setShowPlay(false);
   };
 
   return (
     <div className="container trivia">
       <div className="quiz-container">
         <h1 className="title">Trivia Quiz</h1>
-        <h2>Level: Medium</h2>
+        <h2>Level: Difficult</h2>
       </div>
       
       <div 
@@ -126,4 +126,4 @@ const MedTrivia = () => {
   );
 };
 
-export default MedTrivia;
+export default DifficultTrivia;
