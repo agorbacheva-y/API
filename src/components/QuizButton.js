@@ -43,10 +43,10 @@ const QuizButton = ({ triviaQues, index, setIndex, checked, setChecked, correct,
     <div>
       <div className="btn-container">
         <button
-          className="next-btn"
+          className="show-btn"
           onClick={showCorrect}
         >
-          Check
+          Show Correct
         </button>
 
         <p>{index + 1} of {triviaQues?.length}</p>
@@ -64,5 +64,3 @@ const QuizButton = ({ triviaQues, index, setIndex, checked, setChecked, correct,
 };
 
 export default QuizButton;
-
-// prev btn messes up the points system...

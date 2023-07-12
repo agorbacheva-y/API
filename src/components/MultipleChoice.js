@@ -73,6 +73,3 @@ export default MultipleChoice;
 //   }
 //   return multiChoice;
 // };
-
-
-// showCorrect works on first question in easy only...

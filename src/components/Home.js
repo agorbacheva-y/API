@@ -1,5 +1,6 @@
 import quiz from "../images/quiz.png";
 import SetLevel from "./SetLevel";
+import Credit from "./Credit";
 
 const Home = () => {
   return (
@@ -12,11 +13,18 @@ const Home = () => {
       <div className="level-container">
         <SetLevel />
       </div>
+
+      <footer>
+        <Credit
+          image="Quiz icon"
+          artistName="Freepik" 
+          url="https://www.flaticon.com/free-icons/quiz"
+        >
+          Flaticon
+        </Credit>
+      </footer>
     </div>
   );
 };
 
 export default Home;
-
-// attribute for logo
-// <a href="https://www.flaticon.com/free-icons/quiz" title="quiz icons">Quiz icons created by Freepik - Flaticon</a>

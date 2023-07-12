@@ -90,6 +90,15 @@
   border: none;
 }
 
+.show-btn {
+  background-color: #F9F871;
+  color: black;
+  width: 8rem;
+  height: 2rem;
+  border-radius: 1rem;
+  border: none;
+}
+
 .card-container {
   display: flex;
   margin: 1rem;
@@ -199,6 +208,15 @@
   border: none;
   font-size: 1.25rem;
   width: 10rem;
+}
+
+.credit-link {
+  font-size: 0.7rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  text-align: center;
 }
 
 @media screen and (min-width: 530px) {

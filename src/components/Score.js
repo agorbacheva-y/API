@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import star from "../images/star.png";
+import Credit from "./Credit";
 
 const Score = () => {
   const navigate = useNavigate();
@@ -33,11 +33,17 @@ const Score = () => {
         </button> 
       </div>
       
+      <footer>
+        <Credit
+          image="Star icons"
+          artistName="Pixel perfect" 
+          url="https://www.flaticon.com/free-icons/star"
+        >
+          Flaticon
+        </Credit>
+      </footer>
     </div>
   );
 };
 
 export default Score;
-
-// attribute for star image
-// <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Pixel perfect - Flaticon</a>
