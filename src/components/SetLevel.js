@@ -17,7 +17,7 @@ const SetLevel = () => {
   };
 
   const setDiff = () => {
-    localStorage.setItem("url", "https://opentdb.com/api.php?amount=10&category=9&difficulty=difficult&type=multiple");
+    localStorage.setItem("url", "https://opentdb.com/api.php?amount=10&category=9&difficulty=hard&type=multiple");
     localStorage.setItem("level", "Difficult");
     navigate("/trivia");
   };
