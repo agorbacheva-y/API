@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const QuizButton = ({ triviaQues, index, setIndex, checked, setChecked, correct, setColorOfCorrect }) => {
+const QuizButton = ({ triviaQues, index, setIndex, checked, setChecked, correct, setCorrect, setColorOfCorrect }) => {
   // state for points
   const [ points, setPoints ] = useState(0);
 
@@ -23,6 +23,7 @@ const QuizButton = ({ triviaQues, index, setIndex, checked, setChecked, correct,
     checkAnswer();
     setIndex(prev => prev + 1);
     setChecked(null);
+    setCorrect(null);
     setColorOfCorrect(false);
 
     if (index === triviaQues.length - 1) {

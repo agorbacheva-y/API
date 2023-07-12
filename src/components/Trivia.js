@@ -61,9 +61,11 @@ const Trivia = () => {
       object.choices = object.incorrect_answers);
     triviaQues.forEach((object) => 
       object.choices.push(object.correct_answer));
-    
+  },[triviaQues]);
+
+  useEffect(() => {
     setCorrect(triviaQues[index]?.correct_answer);
-  },[triviaQues])
+  },[triviaQues, index]);
 
   //console.log(trivia)
   //console.log(triviaQues);
@@ -102,6 +104,7 @@ const Trivia = () => {
           setIndex={setIndex} 
           setChecked={setChecked}
           checked={checked}
+          setCorrect={setCorrect}
           correct={correct}
           setColorOfCorrect={setColorOfCorrect}
         />
@@ -131,6 +134,3 @@ const Trivia = () => {
 };
 
 export default Trivia;
-
-// correct questions loading
-// correct answer not changing with index in multiplechoice.js
