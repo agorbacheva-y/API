@@ -23,7 +23,7 @@ const QuizButton = ({ triviaQues, index, setIndex, checked, setChecked, correct,
     checkAnswer();
     setIndex(prev => prev + 1);
     setChecked(null);
-    setCorrect(null);
+    setCorrect("");
     setColorOfCorrect(false);
 
     if (index === triviaQues.length - 1) {

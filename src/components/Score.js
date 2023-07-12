@@ -12,6 +12,11 @@ const Score = () => {
 
   const triviaQues = location.state.triviaQues;
 
+  const goHome = () => {
+    navigate("/");
+    localStorage.clear();
+  };
+
   return (
     <div className="container">
       <div>
@@ -27,7 +32,7 @@ const Score = () => {
         <button
           type="button"
           className="quiz-btn"
-          onClick={() => navigate("/")}
+          onClick={goHome}
         >
           Take New Quiz
         </button> 
