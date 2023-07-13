@@ -31,17 +31,21 @@
   min-width: 100%;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
 }
 
 .home {
   background-image: url(./images/background.png);
   background-size: cover;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
 }
 
 .trivia {
   background-image: url(./images/background2.png);
   background-size: cover;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .logo-container {
@@ -112,7 +116,7 @@
 
 .question {
   margin: auto;
-  font-size: 6vw;
+  font-size: 5vw;
 }
 
 .multi-choice-container {
@@ -211,7 +215,7 @@
 }
 
 .credit-link {
-  font-size: 0.7rem;
+  font-size: 0.5rem;
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -233,7 +237,7 @@
   }
 
   .question {
-    font-size: 5vw;
+    font-size: 4.5vw;
   }
 
   .multi-choice {
@@ -243,12 +247,12 @@
 
 @media screen and (min-width: 630px) {
   .question {
-    font-size: 4vw;
+    font-size: 3.5vw;
   }
 
   .multi-choice {
     padding: 1rem;
-    font-size: 4vw;
+    font-size: 3vw;
   }
 }
 
