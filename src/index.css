@@ -12,8 +12,8 @@
   font-family: 'Montserrat', sans-serif;
   background-color: rgb(50, 50, 50);
   color: white;
-  min-height: 100vh;
-  max-width: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 .title {
@@ -28,10 +28,11 @@
 .container {
   display: flex;
   height: 100vh;
-  min-width: 100%;
+  width: 100vw;
   flex-direction: column;
   justify-content: center;
   align-items: center; 
+  padding: 1rem 0;
 }
 
 .home {
@@ -39,13 +40,16 @@
   background-size: cover;
   padding-top: 1rem;
   padding-bottom: 3rem;
+  min-width: 100vw;
+  height: 100vh;
 }
 
 .trivia {
   background-image: url(./images/background2.png);
   background-size: cover;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+
+  min-width: 100vw;
+  height: 100vh;
 }
 
 .logo-container {
@@ -199,8 +203,7 @@
 
 .level-container {
   display: flex;
-  flex-direction: column;
-  height: 40vh;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
@@ -208,6 +211,7 @@
   background-color: #09617D;
   color: white;
   padding: 1rem;
+  margin: 1rem;
   border-radius: 1rem;
   border: none;
   font-size: 1.25rem;
@@ -224,12 +228,18 @@
 }
 
 @media screen and (min-width: 530px) {
+  .container  {
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: 1rem;
+  }
+
   .title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .level {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .quiz-container {
@@ -237,11 +247,12 @@
   }
 
   .question {
-    font-size: 4.5vw;
+    font-size: 4vw;
   }
 
   .multi-choice {
-    margin: 1rem;
+    margin: 0.5rem;
+    font-size: 3vw;
   }
 }
 
@@ -251,7 +262,6 @@
   }
 
   .multi-choice {
-    padding: 1rem;
     font-size: 3vw;
   }
 }
@@ -264,6 +274,5 @@
   .multi-choice {
     font-size: 2vw;
     text-align: center;
-    margin: 1.5rem;
   }
 }
