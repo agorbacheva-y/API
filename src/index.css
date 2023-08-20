@@ -269,12 +269,17 @@
 }
 
 @media screen and (min-width: 950px) {
+  .card-container {
+    max-width: 760px;
+    height: 25vh;
+  }
+
   .question {
-    font-size: 2.5vw;
+    font-size: 2.3rem;
   }
 
   .multi-choice {
-    font-size: 2vw;
-    text-align: center;
-  }
+    max-width: 760px;
+    font-size: 2.3rem;
+  } 
 }
