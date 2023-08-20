@@ -37,8 +37,8 @@ const MultipleChoice = ({ triviaQues, index, checked, setChecked, correct, color
     setChecked(e.target.value);
   };
 
-  console.log(correct);
-  console.log(checked);
+  //console.log(correct);
+  //console.log(checked);
 
   return (
     <Card.Body>

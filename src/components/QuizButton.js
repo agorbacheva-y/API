@@ -27,7 +27,6 @@ const QuizButton = ({ triviaQues, index, setIndex, checked, setChecked, correct,
     setColorOfCorrect(false);
 
     if (index === triviaQues.length - 1) {
-      //setShow(true);
       navigate("/score", { state: {triviaQues} });
       setIndex(0);
     }
@@ -37,7 +36,7 @@ const QuizButton = ({ triviaQues, index, setIndex, checked, setChecked, correct,
     localStorage.setItem("points", points);
   },[points]);
 
-  console.log(`current points: ${points}`);
+  //console.log(`current points: ${points}`);
 
   return (
     <div>

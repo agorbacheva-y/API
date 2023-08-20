@@ -8,7 +8,7 @@ const Score = () => {
   const location = useLocation();
 
   const finalPoints = localStorage.getItem("points");
-  console.log(finalPoints);
+  //console.log(finalPoints);
 
   const triviaQues = location.state.triviaQues;
 
